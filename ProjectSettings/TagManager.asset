@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Wall
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2956200189
+    locked: 0
+  - name: Ground
+    uniqueID: 3290101819
+    locked: 0
+  - name: Object
+    uniqueID: 3150375889
+    locked: 0
+  - name: Ghost
+    uniqueID: 1701365511
+    locked: 0
+  - name: Player
+    uniqueID: 2981246315
+    locked: 0
+  - name: Bullet
+    uniqueID: 1817350185
     locked: 0

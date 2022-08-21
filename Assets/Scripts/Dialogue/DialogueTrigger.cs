@@ -4,7 +4,7 @@ using Zenject;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] bool triggerOnStart;
-    [SerializeField] Dialogue dialogue;
+    [SerializeField] Dialogue[] dialogues;
 
     [Inject] DialogueManager _dialogueManager;
 
@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void Trigger()
     {
-        _dialogueManager.StartDialogue(dialogue);
+        _dialogueManager.StartDialogue(dialogues);
         gameObject.SetActive(false);
     }
 }

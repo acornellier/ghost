@@ -2,12 +2,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(Collider2D))]
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] Material screenTransitionMaterial;
-    [SerializeField] string progressProperty;
-    [SerializeField] string flipProperty;
+    [SerializeField] string progressProperty = "_Progress";
+    [SerializeField] string flipProperty = "_Flip";
     [SerializeField] float transitionTime = 1f;
 
     public bool isLoaded;
@@ -18,17 +17,10 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(StartLevel());
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (!col.GetComponent<Player>())
-            return;
-
-        EndLevel();
-    }
-
     IEnumerator StartLevel()
     {
-        yield return StartCoroutine(CO_TransitionScene());
+        // yield return StartCoroutine(CO_TransitionScene());
+        yield return null;
         isLoaded = true;
     }
 
@@ -44,8 +36,9 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator CO_EndLevel(int buildIndex)
     {
-        screenTransitionMaterial.SetInt(flipProperty, 1);
-        yield return CO_TransitionScene();
+        // screenTransitionMaterial.SetInt(flipProperty, 1);
+        // yield return CO_TransitionScene();
+        yield return null;
         SceneManager.LoadScene(buildIndex);
     }
 
