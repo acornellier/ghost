@@ -3,8 +3,11 @@ using UnityEngine;
 
 public abstract class NodeEvent : MonoBehaviour
 {
-    [ReadOnly] [SerializeField] protected bool isActive;
+    [SerializeField] float startDelayTime;
+    [SerializeField] float endDelayTime;
+
     [ReadOnly] [SerializeField] bool isDone;
+    [ReadOnly] [SerializeField] protected bool isActive;
 
     public bool IsDone
     {
@@ -21,7 +24,15 @@ public abstract class NodeEvent : MonoBehaviour
     {
         isActive = true;
         isDone = false;
+
+        if (startDelayTime != 0)
+            yield return new WaitForSeconds(startDelayTime);
+
         yield return StartCoroutine(CO_Run());
+
+        if (endDelayTime != 0)
+            yield return new WaitForSeconds(endDelayTime);
+
         isActive = false;
         isDone = true;
     }

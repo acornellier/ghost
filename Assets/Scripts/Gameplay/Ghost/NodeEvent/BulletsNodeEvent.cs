@@ -10,9 +10,7 @@ public class BulletsNodeEvent : NodeEvent
     [SerializeField] float startAngle = 0;
     [SerializeField] float endAngle = 360;
     [SerializeField] float spiralAngleChange = 10;
-    [SerializeField] float startDelayTime = 0;
     [SerializeField] float timeBetweenWaves = 1;
-    [SerializeField] float endDelayTime = 1;
 
     MonoPool<Bullet> _pool;
 
@@ -23,7 +21,6 @@ public class BulletsNodeEvent : NodeEvent
 
     protected override IEnumerator CO_Run()
     {
-        yield return new WaitForSeconds(startDelayTime);
         var adjustedStartAngle = startAngle;
         for (var i = 0; i < waveCount; ++i)
         {
@@ -31,8 +28,6 @@ public class BulletsNodeEvent : NodeEvent
             adjustedStartAngle += spiralAngleChange;
             yield return new WaitForSeconds(timeBetweenWaves);
         }
-
-        yield return new WaitForSeconds(endDelayTime);
 
         _pool.Clear();
     }

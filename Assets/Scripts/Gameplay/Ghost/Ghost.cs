@@ -5,6 +5,7 @@ public class Ghost : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] NodeEvent nodeEvent;
+    [SerializeField] bool combatOnStart;
 
     int _wallLayer;
 
@@ -14,6 +15,11 @@ public class Ghost : MonoBehaviour
     void Awake()
     {
         _wallLayer = LayerMask.NameToLayer("Wall");
+    }
+
+    void Start()
+    {
+        if (combatOnStart) StartBulletSequence();
     }
 
     void FixedUpdate()

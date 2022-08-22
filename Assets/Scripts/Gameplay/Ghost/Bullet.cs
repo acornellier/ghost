@@ -4,7 +4,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
-    int _wallLayer;
+    LayerMask _collisionMask;
     Rigidbody2D _body;
 
     MonoPool<Bullet> _pool;
@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-        _wallLayer = LayerMask.NameToLayer("Wall");
+        _collisionMask = LayerMask.GetMask("Wall");
     }
 
     void FixedUpdate()
@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if (col.gameObject.layer == _wallLayer && !_released)
+        if (gameObject.IsLayerInMask(_collisionMask) && !_released)
         {
             _pool.Release(this);
             _released = true;

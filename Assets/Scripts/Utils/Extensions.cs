@@ -16,4 +16,9 @@ public static class Extensions
 
         return components;
     }
+
+    public static bool IsLayerInMask(this GameObject gameObject, LayerMask mask)
+    {
+        return mask == (mask | (1 << gameObject.layer));
+    }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Animancer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,7 +22,6 @@ public class Player : MonoBehaviour
     Rigidbody2D _body;
 
     Vector2 _facingDirection;
-    bool _dashInput;
 
     void Awake()
     {
@@ -48,7 +46,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         _actions.Interact.performed += (_) => Interact();
-        _actions.Dash.performed += (_) => Dash();
         _actions.Reset.performed += (_) => Die();
     }
 
@@ -65,12 +62,6 @@ public class Player : MonoBehaviour
         var newPosition =
             (Vector2)transform.position + stats.moveSpeed * Time.fixedDeltaTime * moveInput;
 
-        if (_dashInput)
-        {
-            newPosition += stats.dashDistance * moveInput;
-            _dashInput = false;
-        }
-
         _body.MovePosition(newPosition);
     }
 
@@ -79,7 +70,6 @@ public class Player : MonoBehaviour
         var moveInput = _actions.Move.ReadValue<Vector2>();
         if (moveInput != Vector2.zero)
             _facingDirection = moveInput;
-        print(_facingDirection);
 
         if ((moveInput.x < 0 && transform.localScale.x > 0) ||
             (moveInput.x > 0 && transform.localScale.x < 0))
@@ -111,11 +101,6 @@ public class Player : MonoBehaviour
     void Interact()
     {
         interactor.Interact();
-    }
-
-    void Dash()
-    {
-        _dashInput = true;
     }
 
     void HandleHealthChange(float prevHealth, float newHealth)

@@ -10,23 +10,28 @@ using Zenject;
 public class Flingable : MonoBehaviour
 {
     [SerializeField] float liftSpeed = 1;
-    [SerializeField] float timeBetweenShakes = 1 / 10f;
-    [SerializeField] float shakeAngle = 5;
+    [SerializeField] float shakeAngle = 10;
+    [SerializeField] float shakeSpeed = 500;
     [SerializeField] float lightUpTime = 0.5f;
+    [SerializeField] float lightIntensity = 10f;
     [SerializeField] float flingSpeed = 50;
 
     Light2D _light;
+    Collider2D _collider;
     Rigidbody2D _body;
+    LayerMask _collisionMask;
 
     [Inject] Player _player;
 
     State _state = State.Inactive;
-    Vector2 _flingDirection;
+    float _settleTime;
 
     void Awake()
     {
         _light = GetComponent<Light2D>();
+        _collider = GetComponent<Collider2D>();
         _body = GetComponent<Rigidbody2D>();
+        _collisionMask = LayerMask.GetMask("Furniture", "Wall");
     }
 
     void FixedUpdate()
@@ -41,10 +46,13 @@ public class Flingable : MonoBehaviour
                 );
                 break;
             case State.Flinging:
-                _body.MovePosition(
-                    (Vector2)transform.position +
-                    flingSpeed * Time.fixedDeltaTime * _flingDirection
-                );
+                break;
+            case State.Settling:
+                var timeSinceSettle = Time.time - _settleTime;
+                if (timeSinceSettle > 5f ||
+                    (timeSinceSettle > 1f &&
+                     _body.velocity.magnitude < 0.1f && _body.angularVelocity < 0.1f))
+                    BecomeKinematic();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -58,9 +66,24 @@ public class Flingable : MonoBehaviour
             playerHealth.Health -= 1;
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (_state == State.Flinging && col.gameObject.IsLayerInMask(_collisionMask))
+        {
+            D.Log("collided with", col.gameObject.name);
+            _state = State.Settling;
+            _settleTime = Time.time;
+            Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>(), false);
+        }
+    }
+
     public void Lift()
     {
         _state = State.Lifting;
+        _body.bodyType = RigidbodyType2D.Dynamic;
+        _body.gravityScale = 0;
+        _body.drag = 1f;
+        _body.angularDrag = 5f;
         StartCoroutine(LightUp());
         StartCoroutine(Shake());
     }
@@ -68,7 +91,10 @@ public class Flingable : MonoBehaviour
     public void Fling()
     {
         _state = State.Flinging;
-        _flingDirection = (_player.transform.position - transform.position).normalized;
+
+        Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>());
+        var direction = (_player.transform.position - transform.position).normalized;
+        _body.AddForce(flingSpeed * direction, ForceMode2D.Impulse);
     }
 
     IEnumerator LightUp()
@@ -80,22 +106,38 @@ public class Flingable : MonoBehaviour
         while (_state == State.Lifting)
         {
             t += Time.fixedDeltaTime;
-            _light.intensity = Mathf.Lerp(0, 10f, t / lightUpTime);
+            _light.intensity = Mathf.Lerp(0, lightIntensity, t / lightUpTime);
             yield return null;
         }
+
+        _light.intensity = lightIntensity;
     }
 
     IEnumerator Shake()
     {
-        transform.Rotate(0, 0, shakeAngle);
-        var angleMultiplier = -1;
-
+        var angleMultiplier = 1;
         while (_state == State.Lifting)
         {
-            transform.Rotate(0, 0, angleMultiplier * 2 * shakeAngle);
-            angleMultiplier = -angleMultiplier;
-            yield return new WaitForSeconds(timeBetweenShakes);
+            var newAngle = transform.rotation.eulerAngles.z +
+                           angleMultiplier * shakeSpeed * Time.fixedDeltaTime;
+            _body.SetRotation(newAngle);
+
+            if (newAngle > 180) newAngle -= 360;
+
+            if ((angleMultiplier > 0 && newAngle > shakeAngle) ||
+                (angleMultiplier < 0 && newAngle < -shakeAngle))
+                angleMultiplier = -angleMultiplier;
+
+            yield return new WaitForFixedUpdate();
         }
+    }
+
+    void BecomeKinematic()
+    {
+        _state = State.Inactive;
+        _body.bodyType = RigidbodyType2D.Kinematic;
+        _body.velocity = Vector2.zero;
+        _body.angularVelocity = 0;
     }
 
     enum State
@@ -103,5 +145,6 @@ public class Flingable : MonoBehaviour
         Inactive,
         Lifting,
         Flinging,
+        Settling,
     }
 }
