@@ -11,35 +11,52 @@ public class PlayerHealth : MonoBehaviour
 
     float _health;
 
+    Coroutine _immuneCoroutine;
+
     public float Health
     {
         get => _health;
         set
         {
-            if (immune && value < _health) return;
+            if (_immune && value < _health) return;
 
             var prevHealth = _health;
             _health = value;
             onHealthChange?.Invoke(prevHealth, _health);
 
             if (_health < prevHealth)
-                StartCoroutine(Immune());
+                StartCoroutine(CO_TemporaryImmune());
         }
     }
 
     public Action<float, float> onHealthChange;
 
-    [NonSerialized] public bool immune;
+    bool _immune;
+
+    public bool Immune
+    {
+        get => _immune;
+        set
+        {
+            _immune = value;
+
+            if (_immuneCoroutine != null)
+                StopCoroutine(_immuneCoroutine);
+        }
+    }
 
     void Awake()
     {
         Health = maxHealth;
     }
 
-    IEnumerator Immune()
+    IEnumerator CO_TemporaryImmune()
     {
-        immune = true;
+        if (_immuneCoroutine != null)
+            StopCoroutine(_immuneCoroutine);
+
+        _immune = true;
         yield return new WaitForSeconds(immuneTime);
-        immune = false;
+        _immune = false;
     }
 }

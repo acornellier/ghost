@@ -18,8 +18,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float timeBetweenSentences = 0.5f;
 
     [Inject] Player _player;
+    [Inject] PlayerHealth _playerHealth;
 
     PlayerInputActions.PlayerActions _actions;
+    FontStyles _initialFontStyle;
 
     Queue<Dialogue> _dialogues;
     Dialogue _currentDialogue;
@@ -33,6 +35,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        _initialFontStyle = contents.fontStyle;
         _actions.Interact.performed += OnNextInput;
     }
 
@@ -44,6 +47,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(IEnumerable<Dialogue> dialogues, Action callback = null)
     {
         _player.DisablePlayerControls();
+        _playerHealth.Immune = true;
         _actions.Enable();
 
         wrapper.SetActive(true);
@@ -69,7 +73,8 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        StopCoroutine(_coroutine);
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
         contents.text = _currentDialogue.line;
     }
 
@@ -88,7 +93,7 @@ public class DialogueManager : MonoBehaviour
     {
         _currentDialogue = _dialogues.Dequeue();
         title.text = _currentDialogue.character.characterName;
-        contents.text = "";
+        InitializeContents(_currentDialogue);
 
         var sentences = SplitIntoSentences(_currentDialogue.line);
         foreach (var sentence in sentences)
@@ -115,19 +120,48 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    void InitializeContents(Dialogue dialogue)
+    {
+        contents.fontSize = dialogue.fontSize switch
+        {
+            DialogueFontSize.Small => 12,
+            DialogueFontSize.Normal => 16,
+            DialogueFontSize.Large => 24,
+            DialogueFontSize.Huge => 32,
+            _ => throw new ArgumentOutOfRangeException(),
+        };
+
+        contents.fontStyle = dialogue.fontStyle;
+        contents.text = "";
+    }
+
     static List<string> SplitIntoSentences(string line)
     {
         List<string> sentences = new();
         var sentence = "";
         foreach (var character in line)
         {
-            sentence += character;
-            if (character is '.' or '!' or '?')
+            if (character is not ('.' or '!' or '?'))
             {
+                sentence += character;
+                continue;
+            }
+
+            // account for consecutive puncutation marks
+            if (sentence.Length == 0 && sentences.Count > 0)
+            {
+                sentences[^1] += character;
+            }
+            else
+            {
+                sentence += character;
                 sentences.Add(sentence);
                 sentence = "";
             }
         }
+
+        if (sentence.Length > 0)
+            sentences.Add(sentence);
 
         return sentences;
     }

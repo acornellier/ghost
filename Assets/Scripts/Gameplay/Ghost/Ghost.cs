@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] BulletsCombatEvent bulletsCombatEvent;
+    [SerializeField] NodeEvent nodeEvent;
 
     int _wallLayer;
 
@@ -15,12 +16,6 @@ public class Ghost : MonoBehaviour
         _wallLayer = LayerMask.NameToLayer("Wall");
     }
 
-    void Update()
-    {
-        if (bulletsCombatEvent.IsDone)
-            gameObject.SetActive(false);
-    }
-
     void FixedUpdate()
     {
         if (!_moving) return;
@@ -30,8 +25,14 @@ public class Ghost : MonoBehaviour
 
     public void StartBulletSequence()
     {
+        StartCoroutine(CO_RunNodeEvent());
+    }
+
+    IEnumerator CO_RunNodeEvent()
+    {
         _moving = true;
-        bulletsCombatEvent.Run();
+        yield return nodeEvent.Run();
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D col)

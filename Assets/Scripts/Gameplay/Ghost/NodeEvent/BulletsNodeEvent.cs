@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BulletsCombatEvent : CombatEvent
+public class BulletsNodeEvent : NodeEvent
 {
     [SerializeField] Bullet bulletPrefab;
     [SerializeField] int waveCount = 1;
@@ -10,15 +10,18 @@ public class BulletsCombatEvent : CombatEvent
     [SerializeField] float startAngle = 0;
     [SerializeField] float endAngle = 360;
     [SerializeField] float spiralAngleChange = 10;
-    [SerializeField] float startDelayTime;
-    [SerializeField] float timeBetweenWaves;
+    [SerializeField] float startDelayTime = 0;
+    [SerializeField] float timeBetweenWaves = 1;
+    [SerializeField] float endDelayTime = 1;
 
-    public override void Run()
+    MonoPool<Bullet> _pool;
+
+    void Awake()
     {
-        StartCoroutine(CO_Fire());
+        _pool = new MonoPool<Bullet>(bulletPrefab);
     }
 
-    IEnumerator CO_Fire()
+    protected override IEnumerator CO_Run()
     {
         yield return new WaitForSeconds(startDelayTime);
         var adjustedStartAngle = startAngle;
@@ -29,7 +32,9 @@ public class BulletsCombatEvent : CombatEvent
             yield return new WaitForSeconds(timeBetweenWaves);
         }
 
-        IsDone = true;
+        yield return new WaitForSeconds(endDelayTime);
+
+        _pool.Clear();
     }
 
     void Fire(float adjustedStartAngle)
@@ -43,11 +48,10 @@ public class BulletsCombatEvent : CombatEvent
             var moveVector = new Vector2(directionX, directionY);
             var direction = (moveVector - (Vector2)transform.position).normalized;
 
-            var bullet = Instantiate(bulletPrefab);
+            var bullet = _pool.Get();
+            bullet.Initialize(_pool, direction, bulletSpeed);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
-            bullet.gameObject.SetActive(true);
-            bullet.Initialize(direction, bulletSpeed);
 
             angle += angleStep;
         }

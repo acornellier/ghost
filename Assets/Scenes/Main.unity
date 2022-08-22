@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  bulletsCombatEvent: {fileID: 0}
+  nodeEvent: {fileID: 349663567}
 --- !u!114 &68190382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,12 +608,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f3f84e92a4435583497ae8a361d140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
+  isDone: 0
   bulletPrefab: {fileID: -2113659844134935895, guid: 25eb3ae91f932e14ba9d51de59815f9b, type: 3}
-  waveCount: 4
-  bulletCount: 20
+  waveCount: 20
+  bulletCount: 4
   bulletSpeed: 15
   startAngle: 0
   endAngle: 360
+  spiralAngleChange: 15
+  startDelayTime: 1
+  timeBetweenWaves: 0.2
 --- !u!1 &315275212
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,10 +778,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea8659b3a13485db96a67c903cbfb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatEvents:
+  isActive: 0
+  isDone: 0
+  nodeEvents:
   - {fileID: 1789738775}
   - {fileID: 1728772634}
-  - {fileID: 1789738775}
+  - {fileID: 128570556}
   - {fileID: 480719459}
 --- !u!1 &408186623
 GameObject:
@@ -1045,10 +1052,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41751dec4e9249259a300e8450d43099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
+  isDone: 0
   dialogues:
   - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
+    fontSize: 1
+    fontStyle: 0
     line: I JUST WANT TO BE...
   - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
+    fontSize: 3
+    fontStyle: 3
     line: ALONE
 --- !u!1 &519420028
 GameObject:
@@ -2151,8 +2164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41751dec4e9249259a300e8450d43099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
+  isDone: 0
   dialogues:
   - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
+    fontSize: 1
+    fontStyle: 0
     line: GO AWAY!!
 --- !u!1 &1754658185
 GameObject:
@@ -2420,12 +2437,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f3f84e92a4435583497ae8a361d140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
+  isDone: 0
   bulletPrefab: {fileID: -2113659844134935895, guid: 25eb3ae91f932e14ba9d51de59815f9b, type: 3}
   waveCount: 4
   bulletCount: 20
   bulletSpeed: 15
   startAngle: 0
   endAngle: 360
+  spiralAngleChange: 10
+  startDelayTime: 2
+  timeBetweenWaves: 2
 --- !u!1 &1856429371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,10 +2550,16 @@ MonoBehaviour:
   repeatable: 0
   dialogues:
   - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
     line: Ooh, a shiny box.
   - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
     line: HEY, it's the ring I was looking for! Jackpot!
   - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
+    fontSize: 1
+    fontStyle: 0
     line: Get. Out. Of. My. HOOOOOOOOUSE.
   action:
     m_PersistentCalls:
