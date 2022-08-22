@@ -1,16 +1,28 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NodeSequence : NodeEvent
 {
-    [SerializeField] NodeEvent[] nodeEvents;
+    [SerializeField] List<NodeEvent> nodeEvents;
 
     bool _debugSkip;
+
+    void Awake()
+    {
+        OnValidate();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
             _debugSkip = true;
+    }
+
+    void OnValidate()
+    {
+        nodeEvents = gameObject.GetComponentsInDirectChildren<NodeEvent>();
     }
 
     protected override IEnumerator CO_Run()

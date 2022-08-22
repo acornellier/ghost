@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerHealth health;
     [SerializeField] PlayerInteractor interactor;
     [SerializeField] Stats stats;
+    [SerializeField] Animations animations;
 
     [Inject] LevelLoader _levelLoader;
 
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     Collider2D _collider;
     Rigidbody2D _body;
 
+    Vector2 _facingDirection;
     bool _dashInput;
 
     void Awake()
@@ -52,9 +54,16 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        UpdateMovement();
+        UpdateDirection();
+        UpdateAnimations();
+    }
+
+    void UpdateMovement()
+    {
         var moveInput = _actions.Move.ReadValue<Vector2>();
         var newPosition =
-            (Vector2)transform.position + stats.moveSpeed * Time.deltaTime * moveInput;
+            (Vector2)transform.position + stats.moveSpeed * Time.fixedDeltaTime * moveInput;
 
         if (_dashInput)
         {
@@ -63,6 +72,30 @@ public class Player : MonoBehaviour
         }
 
         _body.MovePosition(newPosition);
+    }
+
+    void UpdateDirection()
+    {
+        var moveInput = _actions.Move.ReadValue<Vector2>();
+        if (moveInput != Vector2.zero)
+            _facingDirection = moveInput;
+        print(_facingDirection);
+
+        if ((moveInput.x < 0 && transform.localScale.x > 0) ||
+            (moveInput.x > 0 && transform.localScale.x < 0))
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+    }
+
+    void UpdateAnimations()
+    {
+        var moveInput = _actions.Move.ReadValue<Vector2>();
+
+        PlayDirectionalAnimation(moveInput != Vector2.zero ? animations.walk : animations.idle);
+    }
+
+    void PlayDirectionalAnimation(DirectionalAnimationSet animationSet)
+    {
+        _animancer.Play(animationSet.GetClip(_facingDirection));
     }
 
     public void EnableControls()
@@ -110,5 +143,7 @@ public class Player : MonoBehaviour
     [Serializable]
     class Animations
     {
+        public DirectionalAnimationSet idle;
+        public DirectionalAnimationSet walk;
     }
 }

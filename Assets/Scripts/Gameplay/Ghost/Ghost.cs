@@ -20,7 +20,7 @@ public class Ghost : MonoBehaviour
     {
         if (!_moving) return;
 
-        transform.Translate(speed * Time.deltaTime * _direction);
+        transform.Translate(speed * Time.fixedDeltaTime * _direction);
     }
 
     public void StartBulletSequence()

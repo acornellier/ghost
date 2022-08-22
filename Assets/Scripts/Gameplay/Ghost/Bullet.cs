@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(_speed * Time.deltaTime * _direction);
+        transform.Translate(_speed * Time.fixedDeltaTime * _direction);
     }
 
     public void Initialize(MonoPool<Bullet> pool, Vector2 direction, float speed)

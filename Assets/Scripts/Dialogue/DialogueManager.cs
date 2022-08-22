@@ -58,8 +58,9 @@ public class DialogueManager : MonoBehaviour
 
     void StopDialogue()
     {
-        _actions.Disable();
         _player.EnableControls();
+        _playerHealth.Immune = false;
+        _actions.Disable();
 
         wrapper.SetActive(false);
         _callback?.Invoke();
