@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class Ghost : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] NodeEvent nodeEvent;
+    [SerializeField] AudioClip fightMusic;
+
     [SerializeField] bool combatOnStart;
+
+    [Inject(Id = "Music")] AudioSource _musicSource;
 
     int _wallLayer;
 
@@ -37,8 +42,12 @@ public class Ghost : MonoBehaviour
     IEnumerator CO_RunNodeEvent()
     {
         _moving = true;
+        var prevMusic = _musicSource.clip;
+        _musicSource.clip = fightMusic;
+        _musicSource.Play();
         yield return nodeEvent.Run();
         gameObject.SetActive(false);
+        _musicSource.clip = prevMusic;
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -52,7 +52,7 @@ public class Flingable : MonoBehaviour
                 if (timeSinceSettle > 5f ||
                     (timeSinceSettle > 1f &&
                      _body.velocity.magnitude < 0.1f && _body.angularVelocity < 0.1f))
-                    BecomeKinematic();
+                    GoInactive();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -132,12 +132,13 @@ public class Flingable : MonoBehaviour
         }
     }
 
-    void BecomeKinematic()
+    void GoInactive()
     {
         _state = State.Inactive;
         _body.bodyType = RigidbodyType2D.Kinematic;
         _body.velocity = Vector2.zero;
         _body.angularVelocity = 0;
+        _light.enabled = false;
     }
 
     enum State

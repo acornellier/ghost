@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        if (gameObject.IsLayerInMask(_collisionMask) && !_released)
+        if (col.gameObject.IsLayerInMask(_collisionMask) && !_released)
         {
             _pool.Release(this);
             _released = true;

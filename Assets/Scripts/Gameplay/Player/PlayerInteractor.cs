@@ -21,8 +21,6 @@ public class PlayerInteractor : MonoBehaviour
 
     public void Interact()
     {
-        if (_interactable == null) return;
-
         _interactable?.Interact();
     }
 }

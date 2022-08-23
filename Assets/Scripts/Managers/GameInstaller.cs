@@ -6,6 +6,7 @@ public class GameInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<AudioManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<GameManager>().AsSingle();
+        Container.BindInterfacesAndSelfTo<SavedStateManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<MenuManager>().AsSingle();
 
         Container.Bind<DialogueManager>().FromComponentInHierarchy().AsSingle();

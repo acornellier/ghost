@@ -22,10 +22,11 @@ public class PlayerHealth : MonoBehaviour
 
             var prevHealth = _health;
             _health = value;
-            onHealthChange?.Invoke(prevHealth, _health);
 
             if (_health < prevHealth)
                 StartCoroutine(CO_TemporaryImmune());
+
+            onHealthChange?.Invoke(prevHealth, _health);
         }
     }
 

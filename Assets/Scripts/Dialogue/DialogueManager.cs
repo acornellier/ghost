@@ -35,6 +35,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        wrapper.SetActive(false);
         _initialFontStyle = contents.fontStyle;
         _actions.Interact.performed += OnNextInput;
     }
@@ -96,6 +97,16 @@ public class DialogueManager : MonoBehaviour
         title.text = _currentDialogue.character.characterName;
         InitializeContents(_currentDialogue);
 
+        if (_currentDialogue.wobble != Wobble.None)
+        {
+            contents.text = _currentDialogue.line;
+            while (true)
+            {
+                WobbleContents();
+                yield return null;
+            }
+        }
+
         var sentences = SplitIntoSentences(_currentDialogue.line);
         foreach (var sentence in sentences)
         {
@@ -109,6 +120,8 @@ public class DialogueManager : MonoBehaviour
                 contents.text += sentence[charIndex..newCharIndex];
                 charIndex = newCharIndex;
 
+                WobbleContents();
+
                 talkingHead.sprite = Mathf.Floor(t * spriteSpeed) % 2 == 0
                     ? _currentDialogue.character.mouthClosedSprite
                     : _currentDialogue.character.mouthOpenSprite;
@@ -119,6 +132,24 @@ public class DialogueManager : MonoBehaviour
             talkingHead.sprite = _currentDialogue.character.mouthClosedSprite;
             yield return new WaitForSeconds(timeBetweenSentences);
         }
+    }
+
+    void WobbleContents()
+    {
+        if (_currentDialogue.wobble == Wobble.None) return;
+
+        contents.ForceMeshUpdate();
+        var mesh = contents.mesh;
+        var vertices = mesh.vertices;
+
+        for (var i = 0; i < vertices.Length; i++)
+        {
+            var offset = Time.time + i;
+            vertices[i] += new Vector3(Mathf.Sin(offset * 50f), Mathf.Cos(offset * 25f));
+        }
+
+        mesh.vertices = vertices;
+        contents.canvasRenderer.SetMesh(mesh);
     }
 
     void InitializeContents(Dialogue dialogue)
@@ -165,5 +196,9 @@ public class DialogueManager : MonoBehaviour
             sentences.Add(sentence);
 
         return sentences;
+    }
+
+    void Foo()
+    {
     }
 }

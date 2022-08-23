@@ -11,7 +11,7 @@ public class AudioManager : IInitializable
     {
         Master,
         Sound,
-        Music
+        Music,
     }
 
     public void Initialize()

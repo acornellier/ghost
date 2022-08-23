@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Animancer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,10 +8,11 @@ using Zenject;
 [RequireComponent(typeof(AnimancerComponent))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
 {
     [SerializeField] PlayerHealth health;
-    [SerializeField] PlayerInteractor interactor;
+    [SerializeField] Interactors interactors;
     [SerializeField] Stats stats;
     [SerializeField] Animations animations;
 
@@ -20,8 +22,9 @@ public class Player : MonoBehaviour
     AnimancerComponent _animancer;
     Collider2D _collider;
     Rigidbody2D _body;
+    SpriteRenderer _renderer;
 
-    Vector2 _facingDirection;
+    Vector2 _facingDirection = Vector2.up;
 
     void Awake()
     {
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
         _animancer = GetComponent<AnimancerComponent>();
         _collider = GetComponent<Collider2D>();
         _body = GetComponent<Rigidbody2D>();
+        _renderer = GetComponent<SpriteRenderer>();
     }
 
     void OnEnable()
@@ -68,7 +72,7 @@ public class Player : MonoBehaviour
     void UpdateDirection()
     {
         var moveInput = _actions.Move.ReadValue<Vector2>();
-        if (moveInput != Vector2.zero)
+        if (moveInput != default)
             _facingDirection = moveInput;
 
         if ((moveInput.x < 0 && transform.localScale.x > 0) ||
@@ -100,7 +104,23 @@ public class Player : MonoBehaviour
 
     void Interact()
     {
-        interactor.Interact();
+        GetInteractor()?.Interact();
+    }
+
+    PlayerInteractor GetInteractor()
+    {
+        if (_facingDirection.x >= 0)
+        {
+            if (_facingDirection.y >= 0)
+                return _facingDirection.x > _facingDirection.y ? interactors.right : interactors.up;
+
+            return _facingDirection.x > -_facingDirection.y ? interactors.right : interactors.down;
+        }
+
+        if (_facingDirection.y >= 0)
+            return _facingDirection.x < -_facingDirection.y ? interactors.right : interactors.up;
+
+        return _facingDirection.x < _facingDirection.y ? interactors.right : interactors.down;
     }
 
     void HandleHealthChange(float prevHealth, float newHealth)
@@ -110,6 +130,26 @@ public class Player : MonoBehaviour
             Die();
             return;
         }
+
+        StartCoroutine(FlashSprite());
+    }
+
+    IEnumerator FlashSprite()
+    {
+        var initialColor = _renderer.color;
+        var decreasingAlpha = true;
+        while (health.Immune && health.Health > 0)
+        {
+            var color = _renderer.color;
+            color.a += (decreasingAlpha ? -1 : 1) * animations.flashSpeed * Time.deltaTime;
+            _renderer.color = color;
+
+            if ((decreasingAlpha && color.a <= 0) || (!decreasingAlpha && color.a >= 1))
+                decreasingAlpha = !decreasingAlpha;
+            yield return null;
+        }
+
+        _renderer.color = initialColor;
     }
 
     void Die()
@@ -118,16 +158,23 @@ public class Player : MonoBehaviour
     }
 
     [Serializable]
+    class Interactors
+    {
+        public PlayerInteractor up;
+        public PlayerInteractor right;
+        public PlayerInteractor down;
+    }
+
+    [Serializable]
     class Stats
     {
         public float moveSpeed = 8;
-        public float dashDistance = 5;
-        public float immuneTime = 0.5f;
     }
 
     [Serializable]
     class Animations
     {
+        public float flashSpeed = 4;
         public DirectionalAnimationSet idle;
         public DirectionalAnimationSet walk;
     }
