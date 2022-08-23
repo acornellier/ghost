@@ -1,16 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NodeSequence : NodeEvent
 {
     [SerializeField] List<NodeEvent> nodeEvents;
+    [SerializeField] bool playOnStart;
 
     bool _debugSkip;
 
     void Awake()
     {
         OnValidate();
+    }
+
+    void Start()
+    {
+        if (playOnStart) Run();
     }
 
     void Update()

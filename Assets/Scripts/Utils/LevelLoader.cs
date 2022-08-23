@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip transitionClip;
+
     [SerializeField] Material screenTransitionMaterial;
     [SerializeField] string progressProperty = "_Progress";
     [SerializeField] string flipProperty = "_Flip";
@@ -19,27 +22,23 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator StartLevel()
     {
-        // yield return StartCoroutine(CO_TransitionScene());
+        yield return StartCoroutine(CO_TransitionScene());
         yield return null;
         isLoaded = true;
     }
 
-    public void EndLevel()
+    public void LoadScene(string scene)
     {
-        StartCoroutine(CO_EndLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(CO_EndLevel(scene));
     }
 
-    public void LoadScene(int buildIndex)
+    IEnumerator CO_EndLevel(string scene)
     {
-        StartCoroutine(CO_EndLevel(buildIndex));
-    }
-
-    IEnumerator CO_EndLevel(int buildIndex)
-    {
-        // screenTransitionMaterial.SetInt(flipProperty, 1);
-        // yield return CO_TransitionScene();
+        audioSource.PlayOneShot(transitionClip);
+        screenTransitionMaterial.SetInt(flipProperty, 1);
+        yield return CO_TransitionScene();
         yield return null;
-        SceneManager.LoadScene(buildIndex);
+        SceneManager.LoadScene(scene);
     }
 
     IEnumerator CO_TransitionScene()

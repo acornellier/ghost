@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        _levelLoader.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _levelLoader.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     [Serializable]

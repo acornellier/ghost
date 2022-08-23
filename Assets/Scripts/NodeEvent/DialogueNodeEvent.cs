@@ -7,11 +7,13 @@ public class DialogueNodeEvent : NodeEvent
     [SerializeField] Dialogue[] dialogues;
 
     [Inject] DialogueManager _dialogueManager;
-    [Inject] Ghost _ghost;
+    [InjectOptional] Ghost _ghost;
 
     protected override IEnumerator CO_Run()
     {
-        _ghost.StopAttackingCasting();
+        if (_ghost)
+            _ghost.StopAttackingCasting();
+
         _dialogueManager.StartDialogue(dialogues, () => IsDone = true);
         yield return new WaitUntil(() => IsDone);
     }
