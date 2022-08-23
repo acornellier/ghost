@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f011ac155a9fde549a95556d22335794
+guid: affd97e1e2ec64c698f44297145a174f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,127 +119,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: john_talk_0
+      name: ghost_talk_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 252
-        width: 124
-        height: 126
+        y: 372
+        width: 136
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 195c2c98f92ebff46856cd604886f281
-      internalID: -238783064
+      spriteID: 5f07fb7a214b34774ba762a9b1223139
+      internalID: -1921210228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_1
+      name: ghost_talk_1
       rect:
         serializedVersion: 2
-        x: 151
-        y: 252
-        width: 124
-        height: 126
+        x: 136
+        y: 372
+        width: 136
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6396f8c2f41298e4bae62f864fb6c800
-      internalID: -1446363670
+      spriteID: dc141472c74424692920ec2c7f2bd6d4
+      internalID: -1826673456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_2
+      name: ghost_talk_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 126
-        width: 151
-        height: 126
+        y: 248
+        width: 136
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adc001865b30bac45a94733f924efb96
-      internalID: 2041548783
+      spriteID: 35c58376afc0b45b9841faf21390322a
+      internalID: 1500515153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_3
+      name: ghost_talk_3
       rect:
         serializedVersion: 2
-        x: 151
-        y: 126
-        width: 151
-        height: 126
+        x: 136
+        y: 248
+        width: 136
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c20aa9ca5191d54bb54e4a7c2845a2d
-      internalID: -327518381
+      spriteID: fe3bdeff884764712af9065913495648
+      internalID: 1106861080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_4
+      name: ghost_talk_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 136
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9e371bbf55d458498b6ade0a13f0d4
+      internalID: -875069480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_talk_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 124
+        width: 136
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67157149d96424b73bd2b63d9f7b154e
+      internalID: -1868850083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_talk_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 124
-        height: 126
+        width: 136
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cfdf056a4dfc7b458da4cbd68044680
-      internalID: 770471483
+      spriteID: d30afc562b2234bb29be8b199ca4d21e
+      internalID: -907848368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_5
+      name: ghost_talk_7
       rect:
         serializedVersion: 2
-        x: 151
+        x: 136
         y: 0
-        width: 123
-        height: 126
+        width: 136
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e7297ce744ff8c48927263f2a2d75c7
-      internalID: 998451048
+      spriteID: 111c90a4d62034697bb061c266078fd2
+      internalID: -1250564867
       vertices: []
       indices: 
       edges: []
@@ -255,12 +297,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      john_talk_3: -327518381
-      john_talk_4: 770471483
-      john_talk_2: 2041548783
-      john_talk_0: -238783064
-      john_talk_5: 998451048
-      john_talk_1: -1446363670
+      ghost_talk_1: -1826673456
+      ghost_talk_5: -1868850083
+      ghost_talk_6: -907848368
+      ghost_talk_4: -875069480
+      ghost_talk_7: -1250564867
+      ghost_talk_3: 1106861080
+      ghost_talk_0: -1921210228
+      ghost_talk_2: 1500515153
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

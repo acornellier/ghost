@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c4d869a5d44306b89b1351eb59443d, type: 3}
-  m_Name: Ghost
+  m_Name: RosemaryAngry
   m_EditorClassIdentifier: 
-  characterName: Mary
-  mouthClosedSprite: {fileID: 872987699, guid: 133a06ee749f9454ead5e03eb5144373, type: 3}
-  mouthOpenSprite: {fileID: 872987699, guid: 133a06ee749f9454ead5e03eb5144373, type: 3}
+  characterName: Rosemary
+  mouthClosedSprite: {fileID: -907848368, guid: affd97e1e2ec64c698f44297145a174f, type: 3}
+  mouthOpenSprite: {fileID: -1250564867, guid: affd97e1e2ec64c698f44297145a174f, type: 3}
