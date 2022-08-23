@@ -433,7 +433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &68190378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1378,30 +1378,17 @@ MonoBehaviour:
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: "Hubert, is that you? You look so\u2026 alive\u2026"
+    line: Hubert, is that you?
   - character: {fileID: 11400000, guid: 2b432f36ed3fcf04d874f6bcd4f89fd6, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: "Oh, my god. Okay, either ghosts are real or I\u2019m hallucinating."
+    line: "Oh, my god, ghosts are real! I\u2019m Hubert\u2019s grandson, John."
   - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: "Um\u2026 Hi\u2026 I\u2019m Hubert\u2019s grandson, John. You must be the
-      ghost he talked about all the time\u2026. Mary, right?"
-  - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
-    fontSize: 1
-    fontStyle: 0
-    wobble: 0
-    line: 'Has my silly old Hubert been visiting you guys for the last little while?
-      His ill mannered self didn''t even say bye. '
-  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
-    fontSize: 1
-    fontStyle: 0
-    wobble: 0
-    line: ". . . Grandpa passed away a couple of weeks ago. I guess you didn\u2019t
-      know. I\u2019m so sorry. "
+    line: ". . . Grandpa passed away a couple of weeks ago. I\u2019m so sorry. "
   - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
     fontSize: 0
     fontStyle: 0
@@ -3726,7 +3713,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 58cc632595b13b645b45a25185c5e7c4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.95441294, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4512,7 +4499,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2141527558
