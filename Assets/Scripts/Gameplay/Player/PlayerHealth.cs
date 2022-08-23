@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake()
     {
-        Health = maxHealth;
+        _health = maxHealth;
     }
 
     IEnumerator CO_TemporaryImmune()

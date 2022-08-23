@@ -9,12 +9,19 @@ using Zenject;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Flingable : MonoBehaviour
 {
+    [SerializeField] AudioSource liftSource;
+    [SerializeField] AudioClip liftClip;
+
+    [SerializeField] AudioSource flingSource;
+    [SerializeField] AudioClip flingClip;
+
     [SerializeField] float liftSpeed = 1;
     [SerializeField] float shakeAngle = 10;
     [SerializeField] float shakeSpeed = 500;
     [SerializeField] float lightUpTime = 0.5f;
     [SerializeField] float lightIntensity = 10f;
     [SerializeField] float flingSpeed = 50;
+    [SerializeField] Color lightColor = new(0, 0.4f, 1);
 
     Light2D _light;
     Collider2D _collider;
@@ -61,6 +68,8 @@ public class Flingable : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (_state != State.Flinging) return;
+
         var playerHealth = col.GetComponent<PlayerHealth>();
         if (playerHealth)
             playerHealth.Health -= 1;
@@ -69,17 +78,16 @@ public class Flingable : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (_state == State.Flinging && col.gameObject.IsLayerInMask(_collisionMask))
-        {
-            D.Log("collided with", col.gameObject.name);
-            _state = State.Settling;
-            _settleTime = Time.time;
-            Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>(), false);
-        }
+            Settle();
     }
 
     public void Lift()
     {
         _state = State.Lifting;
+
+        liftSource.Stop();
+        liftSource.Play();
+
         _body.bodyType = RigidbodyType2D.Dynamic;
         _body.gravityScale = 0;
         _body.drag = 1f;
@@ -92,14 +100,26 @@ public class Flingable : MonoBehaviour
     {
         _state = State.Flinging;
 
+        StartCoroutine(FadeOutLiftSound());
+        flingSource.PlayOneShot(flingClip);
+
         Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>());
         var direction = (_player.transform.position - transform.position).normalized;
         _body.AddForce(flingSpeed * direction, ForceMode2D.Impulse);
     }
 
+    public void Settle()
+    {
+        _state = State.Settling;
+        _settleTime = Time.time;
+        Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>(), false);
+        StartCoroutine(FadeOutLight());
+    }
+
     IEnumerator LightUp()
     {
         _light.enabled = true;
+        _light.color = lightColor;
         _light.intensity = 0;
 
         var t = 0f;
@@ -132,13 +152,39 @@ public class Flingable : MonoBehaviour
         }
     }
 
+    IEnumerator FadeOutLight()
+    {
+        var initialIntensity = _light.intensity;
+        var t = 0f;
+        while (_light.intensity > 0)
+        {
+            t += Time.deltaTime;
+            _light.intensity = Mathf.Lerp(initialIntensity, 0, t);
+            yield return null;
+        }
+
+        _light.enabled = false;
+    }
+
+    IEnumerator FadeOutLiftSound()
+    {
+        var t = 0f;
+        while (liftSource.volume > 0)
+        {
+            t += Time.deltaTime;
+            liftSource.volume = Mathf.Clamp01(1 - t);
+            yield return null;
+        }
+
+        liftSource.Stop();
+    }
+
     void GoInactive()
     {
         _state = State.Inactive;
         _body.bodyType = RigidbodyType2D.Kinematic;
         _body.velocity = Vector2.zero;
         _body.angularVelocity = 0;
-        _light.enabled = false;
     }
 
     enum State

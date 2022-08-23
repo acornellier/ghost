@@ -5,12 +5,12 @@ using Zenject;
 public class Ghost : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] NodeEvent nodeEvent;
+    [SerializeField] NodeEvent combatNodeEvent;
     [SerializeField] AudioClip fightMusic;
 
     [SerializeField] bool combatOnStart;
 
-    [Inject(Id = "Music")] AudioSource _musicSource;
+    [Inject] MusicPlayer _musicPlayer;
 
     int _wallLayer;
 
@@ -36,18 +36,18 @@ public class Ghost : MonoBehaviour
 
     public void StartBulletSequence()
     {
-        StartCoroutine(CO_RunNodeEvent());
+        StartCoroutine(CO_RunCombatEvent());
     }
 
-    IEnumerator CO_RunNodeEvent()
+    IEnumerator CO_RunCombatEvent()
     {
         _moving = true;
-        var prevMusic = _musicSource.clip;
-        _musicSource.clip = fightMusic;
-        _musicSource.Play();
-        yield return nodeEvent.Run();
+
+        _musicPlayer.PlayMusic(fightMusic);
+        yield return combatNodeEvent.Run();
+
         gameObject.SetActive(false);
-        _musicSource.clip = prevMusic;
+        _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -197,8 +197,4 @@ public class DialogueManager : MonoBehaviour
 
         return sentences;
     }
-
-    void Foo()
-    {
-    }
 }

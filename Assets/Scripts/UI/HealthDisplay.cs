@@ -1,12 +1,17 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class HealthDisplay : MonoBehaviour
 {
-    [SerializeField] TMP_Text text;
+    [SerializeField] Image heartPrefab;
+    [SerializeField] Sprite fullHeart;
+    [SerializeField] Sprite emptyHeart;
 
     [Inject] PlayerHealth _playerHealth;
+
+    readonly List<Image> _hearts = new();
 
     void OnEnable()
     {
@@ -20,11 +25,25 @@ public class HealthDisplay : MonoBehaviour
 
     void Start()
     {
-        HandleHealthChange(_playerHealth.Health, _playerHealth.Health);
+        for (var i = 0; i < _playerHealth.MaxHealth; ++i)
+        {
+            var heart = Instantiate(heartPrefab, transform);
+            heart.sprite = fullHeart;
+            _hearts.Add(heart);
+        }
+
+        HandleHealthChange(_playerHealth.MaxHealth, _playerHealth.Health);
     }
 
     void HandleHealthChange(float prevHealth, float curHealth)
     {
-        text.text = $"HP: {curHealth}/{_playerHealth.MaxHealth}";
+        var min = Mathf.Min(prevHealth, curHealth);
+        var max = Mathf.Max(prevHealth, curHealth);
+
+        for (var i = Mathf.FloorToInt(min); i < Mathf.CeilToInt(max); ++i)
+        {
+            var heartHealth = Mathf.CeilToInt(Mathf.Clamp01(curHealth - i));
+            _hearts[i].sprite = heartHealth == 0 ? emptyHeart : fullHeart;
+        }
     }
 }
