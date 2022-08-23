@@ -38,11 +38,12 @@ public class DialogueManager : MonoBehaviour
         wrapper.SetActive(false);
         _initialFontStyle = contents.fontStyle;
         _actions.Interact.performed += OnNextInput;
+        _actions.SkipDialogue.performed += OnSkipDialogue;
     }
 
     void OnDisable()
     {
-        _actions.Interact.performed -= OnNextInput;
+        _actions.SkipDialogue.performed -= OnSkipDialogue;
     }
 
     public void StartDialogue(IEnumerable<Dialogue> dialogues, Action callback = null)
@@ -59,6 +60,9 @@ public class DialogueManager : MonoBehaviour
 
     void StopDialogue()
     {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
         _player.EnableControls();
         _playerHealth.Immune = false;
         _actions.Disable();
@@ -80,6 +84,11 @@ public class DialogueManager : MonoBehaviour
         contents.text = _currentDialogue.line;
     }
 
+    void OnSkipDialogue(InputAction.CallbackContext ctx)
+    {
+        StopDialogue();
+    }
+
     void TypeNextLine()
     {
         if (_dialogues.Count <= 0)
@@ -94,6 +103,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator CO_TypeNextLine()
     {
         _currentDialogue = _dialogues.Dequeue();
+        talkingHead.sprite = _currentDialogue.character.mouthClosedSprite;
         title.text = _currentDialogue.character.characterName;
         InitializeContents(_currentDialogue);
 

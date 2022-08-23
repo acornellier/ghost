@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class BulletsNodeEvent : NodeEvent
 {
@@ -12,6 +13,8 @@ public class BulletsNodeEvent : NodeEvent
     [SerializeField] float spiralAngleChange = 10;
     [SerializeField] float timeBetweenWaves = 1;
 
+    [Inject] Ghost _ghost;
+
     MonoPool<Bullet> _pool;
 
     void Awake()
@@ -21,6 +24,8 @@ public class BulletsNodeEvent : NodeEvent
 
     protected override IEnumerator CO_Run()
     {
+        _ghost.StartAttacking();
+
         var adjustedStartAngle = startAngle;
         for (var i = 0; i < waveCount; ++i)
         {

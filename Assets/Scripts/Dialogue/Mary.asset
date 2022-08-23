@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
-  m_Name: StartBulletSequence
+  m_Script: {fileID: 11500000, guid: 18c4d869a5d44306b89b1351eb59443d, type: 3}
+  m_Name: Mary
   m_EditorClassIdentifier: 
+  characterName: Jane
+  mouthClosedSprite: {fileID: 21300000, guid: c6096b3e69bbb01498525a9e62094444, type: 3}
+  mouthOpenSprite: {fileID: 21300000, guid: 504a365eb85b7a94a81219ffa03c72bb, type: 3}

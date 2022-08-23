@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class MusicPlayer : MonoBehaviour
@@ -13,6 +14,17 @@ public class MusicPlayer : MonoBehaviour
     {
         _source = GetComponent<AudioSource>();
         defaultMusic = _source.clip;
+    }
+
+    void Update()
+    {
+        // TODO: DELETE THIS BEFORE PUBLISHING
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else if (Input.GetKeyDown(KeyCode.P))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        else if (Input.GetKeyDown(KeyCode.N))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void PlayMusic(AudioClip clip, float fadeOutTime = 0f)

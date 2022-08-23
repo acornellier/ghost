@@ -15,6 +15,7 @@ public class NodeSequence : NodeEvent
 
     void Update()
     {
+        // TODO: DELETE BEFORE PUBLISHING
         if (Input.GetKeyDown(KeyCode.F))
             _debugSkip = true;
     }

@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         _actions.Interact.performed += (_) => Interact();
-        _actions.Reset.performed += (_) => Die();
     }
 
     void FixedUpdate()

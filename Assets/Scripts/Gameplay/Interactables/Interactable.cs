@@ -1,30 +1,22 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
-using Zenject;
 
 public class Interactable : MonoBehaviour, IInteractable
 {
     [SerializeField] bool repeatable = true;
-    [SerializeField] Dialogue[] dialogues;
-    [SerializeField] UnityEvent action;
-
-    [Inject] DialogueManager _dialogueManager;
+    [SerializeField] NodeEvent nodeEvent;
 
     bool _triggered;
+
+    void OnValidate()
+    {
+        nodeEvent = gameObject.GetComponentInDirectChildren<NodeEvent>();
+    }
 
     public void Interact()
     {
         if (_triggered && !repeatable) return;
 
         _triggered = true;
-        if (dialogues.Length > 0)
-            _dialogueManager.StartDialogue(dialogues, InvokeAction);
-        else
-            InvokeAction();
-    }
-
-    void InvokeAction()
-    {
-        action?.Invoke();
+        nodeEvent.Run();
     }
 }

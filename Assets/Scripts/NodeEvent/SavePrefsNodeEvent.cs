@@ -14,6 +14,6 @@ public class SavePrefsNodeEvent : NodeEvent
         var savedState = _savedStateManager.SavedState;
         savedState.bools[key] = value;
         _savedStateManager.Save();
-        yield return null;
+        yield break;
     }
 }
