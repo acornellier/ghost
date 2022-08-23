@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: dcb129bf9ab90a74b815d1d6d8835bef
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Falling Sky
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0cbbc345b06c48d45b2764bcb4e7bfa2, type: 3}
+  - {fileID: 12800000, guid: b5bb4fe01df20c142aeb3b6d6e6f1676, type: 3}
+  - {fileID: 12800000, guid: 79fc75e44fb77f848beba085d67e1dc2, type: 3}
+  - {fileID: 12800000, guid: 669d90be3fe020a479b6310278c78fe9, type: 3}
+  - {fileID: 12800000, guid: 265daad9626a09843a9b15dd1ff6eace, type: 3}
+  - {fileID: 12800000, guid: 363ca9d1af818044a89030731e88cf1e, type: 3}
+  - {fileID: 12800000, guid: a1f9781bc0710ce42945210c50828a67, type: 3}
+  - {fileID: 12800000, guid: 3ab27e113274e2a48ac02c1c48f99147, type: 3}
+  - {fileID: 12800000, guid: b50a0ae0abaccdd45ad767827af75a2b, type: 3}
+  - {fileID: 12800000, guid: 382dbaa6f8ed0cf4f9386bae3d503fe3, type: 3}
+  - {fileID: 12800000, guid: 1989dbabec6e81f45a69fcda97b9eb64, type: 3}
+  - {fileID: 12800000, guid: 301bd9b26f5ca534c8d2bcd5184e2299, type: 3}
+  - {fileID: 12800000, guid: 28c3fe9f700c54b47aa22af53b413acc, type: 3}
+  - {fileID: 12800000, guid: 42deae710266bcc4ab7e7dde79d2d705, type: 3}
+  - {fileID: 12800000, guid: 7b56562ed6b64b64ea1003fefc4543c5, type: 3}
+  - {fileID: 12800000, guid: 143125a616f90eb4abef3199485349fb, type: 3}
+  - {fileID: 12800000, guid: b9930588c017c7c448db2524ab7181a7, type: 3}
+  - {fileID: 12800000, guid: b2b395cfa8074e9438001c4aab4880ef, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

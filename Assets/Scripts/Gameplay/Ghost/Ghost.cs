@@ -89,7 +89,7 @@ public class Ghost : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitUntil(() => Vector2.Distance(transform.position, target) < 0.5f);
+        _animancer.Play(animations.idle);
     }
 
     public void StartAttacking()
@@ -125,13 +125,12 @@ public class Ghost : MonoBehaviour
         _musicPlayer.PlayMusic(fightMusic);
         yield return combatNodeEvent.Run();
 
-        gameObject.SetActive(false);
         _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == _wallLayer)
+        if (Moving && col.gameObject.layer == _wallLayer)
             Direction = -Direction;
     }
 

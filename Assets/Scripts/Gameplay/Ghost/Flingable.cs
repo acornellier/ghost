@@ -38,7 +38,7 @@ public class Flingable : MonoBehaviour
         _light = GetComponent<Light2D>();
         _collider = GetComponent<Collider2D>();
         _body = GetComponent<Rigidbody2D>();
-        _collisionMask = LayerMask.GetMask("Furniture", "Wall");
+        _collisionMask = LayerMask.GetMask("Furniture", "Player", "Wall");
     }
 
     void FixedUpdate()
@@ -103,7 +103,7 @@ public class Flingable : MonoBehaviour
         StartCoroutine(FadeOutLiftSound());
         flingSource.PlayOneShot(flingClip);
 
-        Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>());
+        // Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>());
         var direction = (_player.transform.position - transform.position).normalized;
         _body.rotation = default;
         _body.velocity = default;

@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     void OnDisable()
     {
+        _actions.Interact.performed -= OnNextInput;
         _actions.SkipDialogue.performed -= OnSkipDialogue;
     }
 
@@ -109,7 +110,7 @@ public class DialogueManager : MonoBehaviour
 
         if (_currentDialogue.wobble != Wobble.None)
         {
-            contents.text = _currentDialogue.line;
+            contents.maxVisibleCharacters = _currentDialogue.line.Length;
             while (true)
             {
                 WobbleContents();
@@ -118,6 +119,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         var sentences = SplitIntoSentences(_currentDialogue.line);
+        contents.maxVisibleCharacters = 0;
         foreach (var sentence in sentences)
         {
             var t = 0f;
@@ -127,7 +129,7 @@ public class DialogueManager : MonoBehaviour
                 t += Time.deltaTime;
 
                 var newCharIndex = Mathf.Clamp(Mathf.CeilToInt(t * textSpeed), 0, sentence.Length);
-                contents.text += sentence[charIndex..newCharIndex];
+                contents.maxVisibleCharacters += newCharIndex - charIndex;
                 charIndex = newCharIndex;
 
                 WobbleContents();
@@ -174,7 +176,7 @@ public class DialogueManager : MonoBehaviour
         };
 
         contents.fontStyle = dialogue.fontStyle;
-        contents.text = "";
+        contents.text = _currentDialogue.line;
     }
 
     static List<string> SplitIntoSentences(string line)

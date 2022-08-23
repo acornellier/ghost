@@ -1,29 +1,26 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip transitionClip;
 
-    [SerializeField] Material screenTransitionMaterial;
-    [SerializeField] string progressProperty = "_Progress";
-    [SerializeField] string flipProperty = "_Flip";
+    [SerializeField] Image transitionImage;
     [SerializeField] float transitionTime = 1f;
 
     public bool isLoaded;
 
     void Start()
     {
-        screenTransitionMaterial.SetInt(flipProperty, 0);
         StartCoroutine(StartLevel());
     }
 
     IEnumerator StartLevel()
     {
-        yield return StartCoroutine(CO_TransitionScene());
-        yield return null;
+        yield return StartCoroutine(CO_StartScene());
         isLoaded = true;
     }
 
@@ -35,20 +32,36 @@ public class LevelLoader : MonoBehaviour
     IEnumerator CO_EndLevel(string scene)
     {
         audioSource.PlayOneShot(transitionClip);
-        screenTransitionMaterial.SetInt(flipProperty, 1);
-        yield return CO_TransitionScene();
-        yield return null;
+        yield return CO_EndScene();
         SceneManager.LoadScene(scene);
     }
 
-    IEnumerator CO_TransitionScene()
+    IEnumerator CO_StartScene()
     {
+        var color = transitionImage.color;
+        color.a = 1;
+
         var t = 0f;
         while (t < transitionTime)
         {
             t += Time.deltaTime;
-            var value = Mathf.Clamp01(t / transitionTime);
-            screenTransitionMaterial.SetFloat(progressProperty, value);
+            color.a = 1 - Mathf.Clamp01(t / transitionTime);
+            transitionImage.color = color;
+            yield return null;
+        }
+    }
+
+    IEnumerator CO_EndScene()
+    {
+        var color = transitionImage.color;
+        color.a = 0;
+
+        var t = 0f;
+        while (t < transitionTime)
+        {
+            t += Time.deltaTime;
+            color.a = Mathf.Clamp01(t / transitionTime);
+            transitionImage.color = color;
             yield return null;
         }
     }

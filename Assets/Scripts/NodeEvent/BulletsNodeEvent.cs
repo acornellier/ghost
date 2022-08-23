@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -20,6 +21,11 @@ public class BulletsNodeEvent : NodeEvent
     void Awake()
     {
         _pool = new MonoPool<Bullet>(bulletPrefab);
+    }
+
+    void FixedUpdate()
+    {
+        transform.position = _ghost.transform.position;
     }
 
     protected override IEnumerator CO_Run()
