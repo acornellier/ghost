@@ -21,7 +21,10 @@ public class PlayerHealth : MonoBehaviour
             if (_immune && value < _health) return;
 
             var prevHealth = _health;
-            _health = value;
+            _health = Mathf.Clamp(value, 0, MaxHealth);
+
+            if (Math.Abs(_health - prevHealth) < 0.01f)
+                return;
 
             if (_health < prevHealth)
                 StartCoroutine(CO_TemporaryImmune());
