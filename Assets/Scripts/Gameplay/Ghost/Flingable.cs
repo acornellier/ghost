@@ -105,10 +105,12 @@ public class Flingable : MonoBehaviour
 
         Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>());
         var direction = (_player.transform.position - transform.position).normalized;
+        _body.rotation = default;
+        _body.velocity = default;
         _body.AddForce(flingSpeed * direction, ForceMode2D.Impulse);
     }
 
-    public void Settle()
+    void Settle()
     {
         _state = State.Settling;
         _settleTime = Time.time;
