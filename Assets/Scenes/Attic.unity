@@ -4127,6 +4127,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 1842301911832641730, guid: 8df2f6cde45f25e43a8d491c10b9baf0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1842301911832641734, guid: 8df2f6cde45f25e43a8d491c10b9baf0, type: 3}
       propertyPath: combatNodeEvent
       value: 

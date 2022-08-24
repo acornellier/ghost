@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 1842301911832641728}
   - component: {fileID: 1842301911832641729}
   - component: {fileID: 1842301911832641734}
-  - component: {fileID: 1842301911832641733}
   - component: {fileID: 1842301911832641732}
   - component: {fileID: 1842301911832641755}
   - component: {fileID: 1842301911832641753}
@@ -133,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1842301911832641728
 Transform:
   m_ObjectHideFlags: 0
@@ -189,7 +188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1701365511
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 872987699, guid: 133a06ee749f9454ead5e03eb5144373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,45 +214,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  combatNodeEvent: {fileID: 0}
   fightMusic: {fileID: 8300000, guid: 6c093cd939a4ce24aaf9e0bd333f204d, type: 3}
-  combatOnStart: 0
   animations:
     idle: {fileID: 7400000, guid: 4292194f5ab602b47b02b4c85f91864c, type: 2}
     attacking: {fileID: 7400000, guid: 61f9db0b809271942a1773e39992c9b4, type: 2}
     cast: {fileID: 7400000, guid: 1156fb9614806204ebb195440eec1566, type: 2}
     castLoop: {fileID: 7400000, guid: 9b5cd5923663671438105c1c5a8b8e58, type: 2}
     flyLeft: {fileID: 7400000, guid: 896b8f625156c5b44a91d3341dc0d83f, type: 2}
---- !u!114 &1842301911832641733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842301911832641730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 797380370962f654f981b947247ecb0e, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1842301911832641734}
-          m_TargetAssemblyTypeName: Ghost, Assembly-CSharp
-          m_MethodName: StartBulletSequence
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!61 &1842301911832641732
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NodeSequence : NodeEvent
@@ -22,13 +23,15 @@ public class NodeSequence : NodeEvent
     void Update()
     {
         // TODO: DELETE BEFORE PUBLISHING
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.F))
             _debugSkip = true;
     }
 
     void OnValidate()
     {
-        nodeEvents = gameObject.GetComponentsInDirectChildren<NodeEvent>();
+        nodeEvents = gameObject.GetComponentsInDirectChildren<NodeEvent>()
+            .Where(nodeEvent => nodeEvent.gameObject.activeInHierarchy)
+            .ToList();
     }
 
     protected override IEnumerator CO_Run()

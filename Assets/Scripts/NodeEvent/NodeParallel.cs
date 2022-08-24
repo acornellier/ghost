@@ -8,22 +8,16 @@ public class NodeParallel : NodeEvent
     [SerializeField] List<NodeEvent> nodeEvents;
     [SerializeField] float timeBetweenStarts;
 
-    // bool _debugSkip;
-
     void Awake()
     {
         OnValidate();
     }
 
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.F))
-    //         _debugSkip = true;
-    // }
-
     void OnValidate()
     {
-        nodeEvents = gameObject.GetComponentsInDirectChildren<NodeEvent>();
+        nodeEvents = gameObject.GetComponentsInDirectChildren<NodeEvent>()
+            .Where(nodeEvent => nodeEvent.gameObject.activeInHierarchy)
+            .ToList();
     }
 
     protected override IEnumerator CO_Run()

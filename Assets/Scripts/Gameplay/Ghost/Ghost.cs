@@ -8,7 +8,6 @@ using Zenject;
 public class Ghost : MonoBehaviour
 {
     [SerializeField] float speed = 5;
-    [SerializeField] NodeEvent combatNodeEvent;
     [SerializeField] AudioClip fightMusic;
     [SerializeField] Animations animations;
 
@@ -99,7 +98,7 @@ public class Ghost : MonoBehaviour
         if (fly)
             _animancer.Play(animations.flyLeft);
 
-        while (Vector2.Distance(transform.position, target) > 0.5f)
+        while (Vector2.Distance(transform.position, target) > 0.1f)
         {
             transform.position = Vector2.MoveTowards(
                 transform.position,

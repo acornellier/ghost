@@ -9,7 +9,8 @@ public class TimelineNodeEvent : NodeEvent
     void Update()
     {
         // TODO: DELETE BEFORE PUBLISHING
-        if (Input.GetKeyDown(KeyCode.F) && timeline.state == PlayState.Playing)
+        if (Input.GetKeyDown(KeyCode.X) ||
+            (Input.GetKeyDown(KeyCode.F) && timeline.state == PlayState.Playing))
         {
             timeline.time = timeline.playableAsset.duration;
             timeline.Evaluate();
