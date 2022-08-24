@@ -20,6 +20,7 @@ public class HealthPickup : MonoBehaviour
     {
         var playerHealth = col.GetComponent<PlayerHealth>();
         if (playerHealth == null) return;
+        if (playerHealth.Health >= playerHealth.MaxHealth) return;
 
         playerHealth.Health += 1;
         source.PlayOneShot(clip);

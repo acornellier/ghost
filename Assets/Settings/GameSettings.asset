@@ -17,3 +17,4 @@ MonoBehaviour:
     masterGroup: {fileID: 24300002, guid: 4d5515011afe6fb499f44337c7d9a8a8, type: 2}
     musicGroup: {fileID: -1262701260633735462, guid: 4d5515011afe6fb499f44337c7d9a8a8, type: 2}
     soundGroup: {fileID: 7918884530457161948, guid: 4d5515011afe6fb499f44337c7d9a8a8, type: 2}
+  bulletPrefab: {fileID: -2113659844134935895, guid: 25eb3ae91f932e14ba9d51de59815f9b, type: 3}

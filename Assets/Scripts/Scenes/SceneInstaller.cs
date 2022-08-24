@@ -8,6 +8,8 @@ public class SceneInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.Bind<MonoPool<Bullet>>().AsSingle();
+
         Container.Bind<HealthDisplay>().FromComponentInHierarchy().AsSingle();
         Container.Bind<Ghost>().FromComponentInHierarchy().AsSingle();
         Container.Bind<Player>().FromComponentInHierarchy().AsSingle();

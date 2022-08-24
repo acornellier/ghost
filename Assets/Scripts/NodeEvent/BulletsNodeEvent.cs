@@ -4,7 +4,6 @@ using Zenject;
 
 public class BulletsNodeEvent : NodeEvent
 {
-    [SerializeField] Bullet bulletPrefab;
     [SerializeField] int waveCount = 1;
     [SerializeField] int bulletCount = 4;
     [SerializeField] float bulletSpeed = 15;
@@ -14,13 +13,7 @@ public class BulletsNodeEvent : NodeEvent
     [SerializeField] float timeBetweenWaves = 1;
 
     [Inject] Ghost _ghost;
-
-    MonoPool<Bullet> _pool;
-
-    void Awake()
-    {
-        _pool = new MonoPool<Bullet>(bulletPrefab);
-    }
+    [Inject] MonoPool<Bullet> _pool;
 
     void FixedUpdate()
     {
@@ -39,7 +32,7 @@ public class BulletsNodeEvent : NodeEvent
             yield return new WaitForSeconds(timeBetweenWaves);
         }
 
-        _pool.Clear();
+        // _pool.Clear();
     }
 
     void Fire(float adjustedStartAngle)

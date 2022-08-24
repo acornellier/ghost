@@ -860,39 +860,46 @@ MonoBehaviour:
     fontStyle: 0
     wobble: 0
     line: Hubert, is that you?  You look so... young...
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 2b432f36ed3fcf04d874f6bcd4f89fd6, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "Oh, my! Okay, either ghosts are real, or I\u2019m hallucinating. Hi\u2026
       I\u2019m Hubert\u2019s grandson, John.\r"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: c2a703aec471d44af97667385034a4f6, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "Where is Hubert? I\u2019ve been lonely\u2026"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "Grandpa passed away a couple of weeks ago. Is he not\u2026 Um\u2026 here
       with you? "
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: c2a703aec471d44af97667385034a4f6, type: 2}
     fontSize: 0
     fontStyle: 0
-    wobble: 1
+    wobble: 2
     line: .... no....
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 57528fc9085244fb982a5e4cf5f07e19, type: 2}
     fontSize: 3
     fontStyle: 3
-    wobble: 1
+    wobble: 0
     line: 'NO!!!! '
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 57528fc9085244fb982a5e4cf5f07e19, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: 'Hubert would never leave me without saying goodbye. Take your lies and
       LEAVE THIS PLACE at once! '
+    topOfScreen: 0
 --- !u!4 &531729419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3414828613999222813, guid: b730ab2e9c081434dafcc6cafc4782d2, type: 3}
@@ -1060,6 +1067,7 @@ MonoBehaviour:
   destination: {fileID: 14654000}
   speed: 15
   fly: 1
+  offset: {x: 0, y: 0}
 --- !u!1 &603811080
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1357,7 @@ MonoBehaviour:
   destination: {fileID: 1556453986}
   speed: 2
   fly: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1010031258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,6 +1492,7 @@ MonoBehaviour:
   destination: {fileID: 2046979427}
   speed: 2
   fly: 0
+  offset: {x: 0, y: 0}
 --- !u!1 &1039939822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1667,7 @@ MonoBehaviour:
   destination: {fileID: 1556453986}
   speed: 25
   fly: 1
+  offset: {x: 0, y: 0}
 --- !u!1 &1187838824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3161,7 @@ MonoBehaviour:
     fontStyle: 0
     wobble: 0
     line: Alright, this appears to be it. Now to -
+    topOfScreen: 0
 --- !u!4 &1821499951
 Transform:
   m_ObjectHideFlags: 0

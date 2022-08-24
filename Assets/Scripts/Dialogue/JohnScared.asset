@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: JohnScared
   m_EditorClassIdentifier: 
   characterName: John
-  mouthClosedSprite: {fileID: 770471483, guid: f011ac155a9fde549a95556d22335794, type: 3}
-  mouthOpenSprite: {fileID: 998451048, guid: f011ac155a9fde549a95556d22335794, type: 3}
+  mouthClosedSprite: {fileID: 1640514854, guid: f011ac155a9fde549a95556d22335794, type: 3}
+  mouthOpenSprite: {fileID: 369802158, guid: f011ac155a9fde549a95556d22335794, type: 3}

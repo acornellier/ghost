@@ -7,7 +7,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.8C24D059" = "text mesh pro"
+	"last_search.8C24D059" = "rename"
 	"OpenInspectorPreview.8C24D059" = "0"
 	"currentGroup.8C24D059" = "all"
 }
@@ -56,6 +56,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"r"
 	"te"
 	"Tim"
 	"Playable Dir"

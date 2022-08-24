@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Pool;
+using Zenject;
 
 public class MonoPool<T> where T : Component
 {
     readonly T _prefab;
-    readonly Transform _parent;
     readonly ObjectPool<T> _pool;
 
-    public MonoPool(T prefab, Transform parent = null)
+    public MonoPool(T prefab)
     {
         _prefab = prefab;
-        _parent = parent;
         _pool = new ObjectPool<T>(
             CreatePooledItem,
             OnTakeFromPool,
@@ -38,7 +37,7 @@ public class MonoPool<T> where T : Component
 
     T CreatePooledItem()
     {
-        return Object.Instantiate(_prefab, _parent);
+        return Object.Instantiate(_prefab);
     }
 
     static void OnTakeFromPool(T obj)
@@ -54,5 +53,10 @@ public class MonoPool<T> where T : Component
     static void OnDestroyPoolObject(T obj)
     {
         Object.Destroy(obj.gameObject);
+    }
+
+    public class Settings
+    {
+        public T prefab;
     }
 }

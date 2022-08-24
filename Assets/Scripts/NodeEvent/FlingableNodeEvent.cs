@@ -9,6 +9,12 @@ public class FlingableNodeEvent : NodeEvent
 
     [Inject] Ghost _ghost;
 
+    void OnValidate()
+    {
+        if (flingable)
+            gameObject.name = "Fling" + flingable.name;
+    }
+
     protected override IEnumerator CO_Run()
     {
         _ghost.StartCasting();

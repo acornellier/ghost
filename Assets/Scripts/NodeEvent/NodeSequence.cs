@@ -45,7 +45,6 @@ public class NodeSequence : NodeEvent
                     if (_debugSkip)
                     {
                         _debugSkip = false;
-                        nodeEvent.gameObject.SetActive(false);
                         return true;
                     }
 

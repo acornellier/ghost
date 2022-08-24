@@ -217,6 +217,7 @@ MonoBehaviour:
   fightMusic: {fileID: 8300000, guid: 6c093cd939a4ce24aaf9e0bd333f204d, type: 3}
   animations:
     idle: {fileID: 7400000, guid: 4292194f5ab602b47b02b4c85f91864c, type: 2}
+    idleUp: {fileID: 7400000, guid: e5aac7fb455ec3d47bc65cfd8284c9a7, type: 2}
     attacking: {fileID: 7400000, guid: 61f9db0b809271942a1773e39992c9b4, type: 2}
     cast: {fileID: 7400000, guid: 1156fb9614806204ebb195440eec1566, type: 2}
     castLoop: {fileID: 7400000, guid: 9b5cd5923663671438105c1c5a8b8e58, type: 2}

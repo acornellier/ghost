@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e29fa97fb187db41b74989608a19ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAudio: {fileID: 0}
+  playerAudio: {fileID: 779286994557083513}
   health: {fileID: 992387324994089130}
   interactors:
     up: {fileID: 992387326522937697}
@@ -228,7 +228,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

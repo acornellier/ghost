@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f011ac155a9fde549a95556d22335794
+guid: 39ecafe6bd15f804f84e454db1db772b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,139 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: john_talk_0
+      name: grandpa_talk_0
       rect:
         serializedVersion: 2
         x: 1
-        y: 556
-        width: 118
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 195c2c98f92ebff46856cd604886f281
-      internalID: -238783064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_talk_1
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 556
-        width: 118
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6396f8c2f41298e4bae62f864fb6c800
-      internalID: -1446363670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_talk_2
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 417
-        width: 118
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adc001865b30bac45a94733f924efb96
-      internalID: 2041548783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_talk_3
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 417
-        width: 118
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c20aa9ca5191d54bb54e4a7c2845a2d
-      internalID: -327518381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_talk_4
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 278
-        width: 162
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cfdf056a4dfc7b458da4cbd68044680
-      internalID: 770471483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_talk_5
-      rect:
-        serializedVersion: 2
-        x: 166
-        y: 278
-        width: 162
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e7297ce744ff8c48927263f2a2d75c7
-      internalID: 998451048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: john_talk_6
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 139
+        y: 126
         width: 117
-        height: 135
+        height: 123
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19a2984ed95fee64990872ef3a321f07
-      internalID: 1640514854
+      spriteID: 339b17ceb669ab145b2a9347c31e95bf
+      internalID: 1249909529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_7
+      name: grandpa_talk_1
       rect:
         serializedVersion: 2
-        x: 166
-        y: 139
+        x: 123
+        y: 126
         width: 117
-        height: 135
+        height: 123
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f28854e15cc89ac4a82d172dab422c9d
-      internalID: 369802158
+      spriteID: e5aeab844ee9b9741b94015358eafcbe
+      internalID: -456336502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_8
+      name: grandpa_talk_2
       rect:
         serializedVersion: 2
         x: 1
-        y: 0
-        width: 118
-        height: 127
+        y: 1
+        width: 117
+        height: 123
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +175,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c3e780e549b7f6438f26426cee0d8eb
-      internalID: -1728498422
+      spriteID: 7ff0a0ee7e1ca374baea83cc02a4b227
+      internalID: 663597771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: john_talk_9
+      name: grandpa_talk_3
       rect:
         serializedVersion: 2
-        x: 166
-        y: 0
-        width: 118
-        height: 127
+        x: 123
+        y: 1
+        width: 117
+        height: 123
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26b43e8809d04594fa258fd5996dfc76
-      internalID: 1629609072
+      spriteID: 9661586c897f36946b8188bebf5517c8
+      internalID: -2038612440
       vertices: []
       indices: 
       edges: []
@@ -339,16 +213,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      john_talk_8: -1728498422
-      john_talk_3: -327518381
-      john_talk_4: 770471483
-      john_talk_2: 2041548783
-      john_talk_7: 369802158
-      john_talk_6: 1640514854
-      john_talk_9: 1629609072
-      john_talk_0: -238783064
-      john_talk_5: 998451048
-      john_talk_1: -1446363670
+      grandpa_talk_0: 1249909529
+      grandpa_talk_3: -2038612440
+      grandpa_talk_1: -456336502
+      grandpa_talk_2: 663597771
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

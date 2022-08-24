@@ -53,11 +53,11 @@ TagManager:
   - name: Object
     uniqueID: 3150375889
     locked: 0
-  - name: Ghost
-    uniqueID: 1701365511
-    locked: 0
   - name: Player
     uniqueID: 2981246315
+    locked: 0
+  - name: Ghost
+    uniqueID: 1701365511
     locked: 0
   - name: Bullet
     uniqueID: 1817350185

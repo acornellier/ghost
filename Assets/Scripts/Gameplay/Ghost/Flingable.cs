@@ -31,6 +31,7 @@ public class Flingable : MonoBehaviour
     [Inject] Player _player;
 
     State _state = State.Inactive;
+    float _flingTime;
     float _settleTime;
 
     void Awake()
@@ -39,6 +40,8 @@ public class Flingable : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _body = GetComponent<Rigidbody2D>();
         _collisionMask = LayerMask.GetMask("Furniture", "Player", "Wall");
+
+        _body.bodyType = RigidbodyType2D.Kinematic;
     }
 
     void FixedUpdate()
@@ -53,6 +56,9 @@ public class Flingable : MonoBehaviour
                 );
                 break;
             case State.Flinging:
+                var timeSinceFling = Time.time - _flingTime;
+                if (timeSinceFling > 5f)
+                    Settle();
                 break;
             case State.Settling:
                 var timeSinceSettle = Time.time - _settleTime;
@@ -81,6 +87,11 @@ public class Flingable : MonoBehaviour
             Settle();
     }
 
+    public void MakeDynamic()
+    {
+        _body.bodyType = RigidbodyType2D.Dynamic;
+    }
+
     public void Lift()
     {
         _state = State.Lifting;
@@ -88,10 +99,6 @@ public class Flingable : MonoBehaviour
         liftSource.Stop();
         liftSource.Play();
 
-        _body.bodyType = RigidbodyType2D.Dynamic;
-        _body.gravityScale = 0;
-        _body.drag = 1f;
-        _body.angularDrag = 5f;
         StartCoroutine(LightUp());
         StartCoroutine(Shake());
     }
@@ -99,11 +106,11 @@ public class Flingable : MonoBehaviour
     public void Fling()
     {
         _state = State.Flinging;
+        _flingTime = Time.time;
 
         StartCoroutine(FadeOutLiftSound());
         flingSource.PlayOneShot(flingClip);
 
-        // Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>());
         var direction = (_player.transform.position - transform.position).normalized;
         _body.rotation = default;
         _body.velocity = default;
@@ -161,7 +168,7 @@ public class Flingable : MonoBehaviour
         while (_light.intensity > 0)
         {
             t += Time.deltaTime;
-            _light.intensity = Mathf.Lerp(initialIntensity, 0, t);
+            _light.intensity = Mathf.Lerp(initialIntensity, 0, 2 * t);
             yield return null;
         }
 
@@ -184,7 +191,7 @@ public class Flingable : MonoBehaviour
     void GoInactive()
     {
         _state = State.Inactive;
-        _body.bodyType = RigidbodyType2D.Kinematic;
+        // _body.bodyType = RigidbodyType2D.Kinematic;
         _body.velocity = Vector2.zero;
         _body.angularVelocity = 0;
     }

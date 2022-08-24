@@ -24,5 +24,6 @@ public enum DialogueFontSize
 public enum Wobble
 {
     None,
+    Slight,
     Serious,
 }

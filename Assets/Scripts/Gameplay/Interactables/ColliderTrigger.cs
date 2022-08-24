@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class ColliderTrigger : MonoBehaviour
 {
     [SerializeField] UnityEvent unityEvent;
-    [SerializeField] bool repeatable = true;
+    [SerializeField] bool repeatable;
 
     bool _triggered;
 

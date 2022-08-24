@@ -71,6 +71,11 @@ public class Ghost : MonoBehaviour
             sceneTransition.gameObject.SetActive(false);
         }
 
+        foreach (var flingable in FindObjectsOfType<Flingable>())
+        {
+            flingable.MakeDynamic();
+        }
+
         nodeEvent.Run();
     }
 

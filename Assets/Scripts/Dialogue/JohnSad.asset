@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18c4d869a5d44306b89b1351eb59443d, type: 3}
-  m_Name: JohnPhone
+  m_Name: JohnSad
   m_EditorClassIdentifier: 
   characterName: John
-  mouthClosedSprite: {fileID: 770471483, guid: f011ac155a9fde549a95556d22335794, type: 3}
-  mouthOpenSprite: {fileID: 998451048, guid: f011ac155a9fde549a95556d22335794, type: 3}
+  mouthClosedSprite: {fileID: 2041548783, guid: f011ac155a9fde549a95556d22335794, type: 3}
+  mouthOpenSprite: {fileID: -327518381, guid: f011ac155a9fde549a95556d22335794, type: 3}

@@ -54,7 +54,7 @@ public class DialogueImage : MonoBehaviour
             contents.maxVisibleCharacters = _currentDialogue.line.Length;
             while (true)
             {
-                WobbleContents();
+                WobbleContents(_currentDialogue.wobble);
                 yield return null;
             }
         }
@@ -74,8 +74,6 @@ public class DialogueImage : MonoBehaviour
                 contents.maxVisibleCharacters += newCharIndex - charIndex;
                 charIndex = newCharIndex;
 
-                WobbleContents();
-
                 talkingHead.sprite = Mathf.Floor(t * spriteSpeed) % 2 == 0
                     ? _currentDialogue.character.mouthClosedSprite
                     : _currentDialogue.character.mouthOpenSprite;
@@ -88,18 +86,21 @@ public class DialogueImage : MonoBehaviour
         }
     }
 
-    void WobbleContents()
+    void WobbleContents(Wobble wobble)
     {
-        if (_currentDialogue.wobble == Wobble.None) return;
+        if (wobble == Wobble.None) return;
 
         contents.ForceMeshUpdate();
         var mesh = contents.mesh;
         var vertices = mesh.vertices;
-
+        var multiplier = wobble == Wobble.Slight ? 0.5f : 1f;
         for (var i = 0; i < vertices.Length; i++)
         {
             var offset = Time.time + i;
-            vertices[i] += new Vector3(Mathf.Sin(offset * 50f), Mathf.Cos(offset * 25f));
+            vertices[i] += new Vector3(
+                Mathf.Sin(offset * 50) * multiplier,
+                Mathf.Cos(offset * 25) * multiplier
+            );
         }
 
         mesh.vertices = vertices;
