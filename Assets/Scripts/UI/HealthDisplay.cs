@@ -12,7 +12,7 @@ public class HealthDisplay : MonoBehaviour
 
     public void Initialize(float health, float maxHealth)
     {
-        for (var i = _hearts.Count; i < maxHealth; ++i)
+        for (var i = 0; i < maxHealth; ++i)
         {
             var heart = Instantiate(heartPrefab, transform);
             heart.enabled = false;
@@ -38,12 +38,16 @@ public class HealthDisplay : MonoBehaviour
     public void Show()
     {
         foreach (var heart in _hearts)
+        {
             heart.enabled = true;
+        }
     }
 
     public void Hide()
     {
         foreach (var heart in _hearts)
+        {
             heart.enabled = false;
+        }
     }
 }

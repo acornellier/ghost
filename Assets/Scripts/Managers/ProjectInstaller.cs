@@ -11,7 +11,6 @@ public class ProjectInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<MenuManager>().AsSingle();
 
         Container.Bind<DialogueManager>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<HealthDisplay>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelLoader>().FromComponentInHierarchy().AsSingle();
         Container.Bind<MusicPlayer>().FromComponentInHierarchy().AsSingle();
     }

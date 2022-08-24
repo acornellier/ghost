@@ -12,6 +12,7 @@ using Zenject;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] PlayerAudio playerAudio;
     [SerializeField] PlayerHealth health;
     [SerializeField] Interactors interactors;
     [SerializeField] Stats stats;
@@ -161,6 +162,8 @@ public class Player : MonoBehaviour
 
     void HandleHealthChange(float prevHealth, float newHealth)
     {
+        playerAudio.DamageTaken();
+
         if (newHealth <= 0)
         {
             Die();
@@ -202,7 +205,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        _levelLoader.LoadScene(SceneManager.GetActiveScene().name);
+        _levelLoader.ReloadScene();
     }
 
     [Serializable]

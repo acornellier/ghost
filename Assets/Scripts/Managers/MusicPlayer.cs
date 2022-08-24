@@ -20,6 +20,12 @@ public class MusicPlayer : MonoBehaviour
         StartCoroutine(CO_PlayMusic(clip, fadeOutTime));
     }
 
+    public void PlayDefaultIfNotAlreadyPlaying()
+    {
+        if (_source.clip != defaultMusic)
+            StartCoroutine(CO_PlayMusic(defaultMusic));
+    }
+
     IEnumerator CO_PlayMusic(AudioClip clip, float fadeOutTime = 0f)
     {
         var t = 0f;

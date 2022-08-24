@@ -23,6 +23,7 @@ public class ShadowHandVertical : MonoBehaviour
     void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
+        _renderer.enabled = false;
         _animancer = GetComponent<AnimancerComponent>();
         _animancer.Play(idleClip);
     }
@@ -41,6 +42,12 @@ public class ShadowHandVertical : MonoBehaviour
         _state = State.Preparing;
         if (onPlayer)
             transform.position = _player.transform.position + 2 * Vector3.down;
+
+        transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y,
+            transform.position.z + transform.position.y
+        );
 
         _renderer.enabled = true;
 
@@ -63,10 +70,9 @@ public class ShadowHandVertical : MonoBehaviour
         var state = _animancer.Play(chargeClip);
         yield return state;
 
-        yield return new WaitForSeconds(0.5f);
-
+        _state = State.Returning;
         state = _animancer.Play(chargeClip);
-        state.Speed = -1;
+        state.Speed = -2;
         yield return state;
 
         _renderer.enabled = false;
@@ -95,5 +101,6 @@ public class ShadowHandVertical : MonoBehaviour
         Inactive,
         Preparing,
         Charging,
+        Returning,
     }
 }

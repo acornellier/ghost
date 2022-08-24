@@ -60,6 +60,31 @@ public class Ghost : MonoBehaviour
         UpdateAnimations();
     }
 
+    public void StartCombat(NodeEvent nodeEvent)
+    {
+        Moving = true;
+        _musicPlayer.PlayMusic(fightMusic);
+        _healthDisplay.Show();
+
+        foreach (var sceneTransition in FindObjectsOfType<SceneTransition>())
+        {
+            sceneTransition.gameObject.SetActive(false);
+        }
+
+        nodeEvent.Run();
+    }
+
+    public void EndCombat()
+    {
+        _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
+        _healthDisplay.Hide();
+
+        foreach (var sceneTransition in FindObjectsOfType<SceneTransition>())
+        {
+            sceneTransition.gameObject.SetActive(true);
+        }
+    }
+
     public void StopAttackingCasting()
     {
         _state = State.None;
@@ -106,20 +131,6 @@ public class Ghost : MonoBehaviour
     {
         if (_state == State.None)
             _animancer.Play(animations.idle);
-    }
-
-    public void StartCombat(NodeEvent nodeEvent)
-    {
-        Moving = true;
-        _musicPlayer.PlayMusic(fightMusic);
-        _healthDisplay.Show();
-        nodeEvent.Run();
-    }
-
-    public void EndCombat()
-    {
-        _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
-        _healthDisplay.Hide();
     }
 
     void OnTriggerEnter2D(Collider2D col)

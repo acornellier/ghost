@@ -21,6 +21,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(CO_StartScene());
     }
 
+    public void ReloadScene()
+    {
+        StartCoroutine(CO_LoadScene(SceneManager.GetActiveScene().name));
+    }
+
     public void LoadScene(string scene, string nextSpawn = null)
     {
         _savedStateManager.SavedState.nextSpawn = nextSpawn;
