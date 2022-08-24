@@ -19,6 +19,7 @@ public class SceneInstaller : MonoInstaller
 
     void OnDisable()
     {
-        _dialogueManager.StopDialogue();
+        if (_dialogueManager)
+            _dialogueManager.StopDialogue();
     }
 }

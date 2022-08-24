@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -45,7 +44,7 @@ public class BulletsNodeEvent : NodeEvent
 
     void Fire(float adjustedStartAngle)
     {
-        var angleStep = (endAngle - adjustedStartAngle) / bulletCount;
+        var angleStep = (endAngle - startAngle) / bulletCount;
         var angle = adjustedStartAngle;
         for (var i = 0; i < bulletCount; i++)
         {
@@ -53,6 +52,7 @@ public class BulletsNodeEvent : NodeEvent
             var directionY = transform.position.y + Mathf.Cos(angle / 180f * Mathf.PI);
             var moveVector = new Vector2(directionX, directionY);
             var direction = (moveVector - (Vector2)transform.position).normalized;
+            d.log("bullet", angle, direction);
 
             var bullet = _pool.Get();
             bullet.Initialize(_pool, direction, bulletSpeed);

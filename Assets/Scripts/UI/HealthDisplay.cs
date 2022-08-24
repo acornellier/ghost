@@ -15,6 +15,7 @@ public class HealthDisplay : MonoBehaviour
         for (var i = _hearts.Count; i < maxHealth; ++i)
         {
             var heart = Instantiate(heartPrefab, transform);
+            heart.enabled = false;
             heart.sprite = fullHeart;
             _hearts.Add(heart);
         }
@@ -32,5 +33,17 @@ public class HealthDisplay : MonoBehaviour
             var heartHealth = Mathf.CeilToInt(Mathf.Clamp01(curHealth - i));
             _hearts[i].sprite = heartHealth == 0 ? emptyHeart : fullHeart;
         }
+    }
+
+    public void Show()
+    {
+        foreach (var heart in _hearts)
+            heart.enabled = true;
+    }
+
+    public void Hide()
+    {
+        foreach (var heart in _hearts)
+            heart.enabled = false;
     }
 }

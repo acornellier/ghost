@@ -43,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     void OnDisable()
     {
+        StopDialogue();
         _actions.Interact.performed -= OnNextInput;
         _actions.SkipDialogue.performed -= OnSkipDialogue;
     }
@@ -68,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         wrapper.SetActive(false);
         onDialogueEnd?.Invoke();
         _callback?.Invoke();
+        _callback = null;
     }
 
     void OnNextInput(InputAction.CallbackContext ctx)
@@ -170,7 +172,7 @@ public class DialogueManager : MonoBehaviour
             DialogueFontSize.Normal => 16,
             DialogueFontSize.Large => 24,
             DialogueFontSize.Huge => 32,
-            _ => throw new ArgumentOutOfRangeException(),
+            _ => throw new ArgumentOutOfRangeException()
         };
 
         contents.fontStyle = dialogue.fontStyle;

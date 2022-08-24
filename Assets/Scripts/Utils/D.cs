@@ -1,9 +1,11 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public static class D
+// ReSharper disable once InconsistentNaming
+public static class d
 {
-    public static void Log(params object[] v)
+    // ReSharper disable once InconsistentNaming
+    public static void log(params object[] v)
     {
         Debug.Log(string.Join(", ", v.Select(s => s.ToString())));
     }

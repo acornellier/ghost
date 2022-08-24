@@ -14,6 +14,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] Animations animations;
 
     [Inject] MusicPlayer _musicPlayer;
+    [Inject] HealthDisplay _healthDisplay;
 
     AnimancerComponent _animancer;
     int _wallLayer;
@@ -123,9 +124,11 @@ public class Ghost : MonoBehaviour
         Moving = true;
 
         _musicPlayer.PlayMusic(fightMusic);
+        _healthDisplay.Show();
         yield return combatNodeEvent.Run();
 
         _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
+        _healthDisplay.Hide();
     }
 
     void OnTriggerEnter2D(Collider2D col)
