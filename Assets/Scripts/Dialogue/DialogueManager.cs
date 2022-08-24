@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Zenject;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -74,7 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     void OnNextInput(InputAction.CallbackContext ctx)
     {
-        if (contents.text == _currentDialogue.line)
+        if (contents.maxVisibleCharacters >= _currentDialogue.line.Length)
         {
             TypeNextLine();
             return;
@@ -82,7 +81,7 @@ public class DialogueManager : MonoBehaviour
 
         if (_coroutine != null)
             StopCoroutine(_coroutine);
-        contents.text = _currentDialogue.line;
+        contents.maxVisibleCharacters = _currentDialogue.line.Length;
     }
 
     void OnSkipDialogue(InputAction.CallbackContext ctx)
@@ -124,7 +123,8 @@ public class DialogueManager : MonoBehaviour
         {
             var t = 0f;
             var charIndex = 0;
-            while (charIndex < sentence.Length)
+            while (charIndex < sentence.Length &&
+                   contents.maxVisibleCharacters < _currentDialogue.line.Length)
             {
                 t += Time.deltaTime;
 
@@ -172,7 +172,7 @@ public class DialogueManager : MonoBehaviour
             DialogueFontSize.Normal => 16,
             DialogueFontSize.Large => 24,
             DialogueFontSize.Huge => 32,
-            _ => throw new ArgumentOutOfRangeException()
+            _ => throw new ArgumentOutOfRangeException(),
         };
 
         contents.fontStyle = dialogue.fontStyle;

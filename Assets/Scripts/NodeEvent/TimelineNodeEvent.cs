@@ -20,6 +20,6 @@ public class TimelineNodeEvent : NodeEvent
     protected override IEnumerator CO_Run()
     {
         timeline.Play();
-        yield return new WaitUntil(() => timeline.state != PlayState.Playing);
+        yield return new WaitUntil(() => timeline.time >= timeline.playableAsset.duration - 0.1f);
     }
 }

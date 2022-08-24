@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     Rigidbody2D _body;
     SpriteRenderer _renderer;
 
+    bool _animationsDisabled;
     Vector2 _facingDirection = Vector2.up;
 
     void Awake()
@@ -105,6 +106,8 @@ public class Player : MonoBehaviour
 
     void UpdateAnimations()
     {
+        if (_animationsDisabled) return;
+
         var moveInput = _actions.Move.ReadValue<Vector2>();
 
         PlayDirectionalAnimation(moveInput != Vector2.zero ? animations.walk : animations.idle);
@@ -123,6 +126,16 @@ public class Player : MonoBehaviour
     public void DisableControls()
     {
         _actions.Disable();
+    }
+
+    public void EnableAnimations()
+    {
+        _animationsDisabled = false;
+    }
+
+    public void DisableAnimations()
+    {
+        _animationsDisabled = true;
     }
 
     void OnInteract(InputAction.CallbackContext _)
