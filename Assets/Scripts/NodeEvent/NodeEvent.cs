@@ -15,9 +15,9 @@ public abstract class NodeEvent : MonoBehaviour
         protected set => isDone = value;
     }
 
-    public Coroutine Run()
+    public void Run()
     {
-        return StartCoroutine(CO_RunWrapper());
+        StartCoroutine(CO_RunWrapper());
     }
 
     IEnumerator CO_RunWrapper()
