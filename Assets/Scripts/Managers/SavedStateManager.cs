@@ -1,17 +1,28 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
-using Zenject;
 
 public class SavedState
 {
     public string scene;
+    public string nextSpawn;
     public Dictionary<string, bool> bools = new();
 }
 
-public class SavedStateManager : IInitializable
+public class SavedStateManager
 {
-    public SavedState SavedState { get; private set; }
+    SavedState _savedState;
+
+    public SavedState SavedState
+    {
+        get
+        {
+            if (_savedState == null)
+                Initialize();
+            return _savedState;
+        }
+        private set => _savedState = value;
+    }
 
     const string _key = "SavedState";
 
@@ -28,11 +39,6 @@ public class SavedStateManager : IInitializable
         Save();
     }
 
-    public void Update(SavedState savedState)
-    {
-        SavedState = savedState;
-    }
-
     public void Save()
     {
         var jsonString = JsonConvert.SerializeObject(SavedState);
@@ -43,5 +49,11 @@ public class SavedStateManager : IInitializable
     public void Reset()
     {
         PlayerPrefs.DeleteKey(_key);
+        Initialize();
+    }
+
+    public bool IsBoolSet(string key)
+    {
+        return SavedState.bools.TryGetValue(key, out var value) && value;
     }
 }

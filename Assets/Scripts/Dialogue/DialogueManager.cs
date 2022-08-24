@@ -17,8 +17,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float spriteSpeed = 10;
     [SerializeField] float timeBetweenSentences = 0.5f;
 
-    [Inject] Player _player;
-    [Inject] PlayerHealth _playerHealth;
+    public Action onDialogueStart;
+    public Action onDialogueEnd;
 
     PlayerInputActions.PlayerActions _actions;
     FontStyles _initialFontStyle;
@@ -49,8 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(IEnumerable<Dialogue> dialogues, Action callback = null)
     {
-        _player.DisablePlayerControls();
-        _playerHealth.Immune = true;
+        onDialogueStart?.Invoke();
         _actions.Enable();
 
         wrapper.SetActive(true);
@@ -59,16 +58,15 @@ public class DialogueManager : MonoBehaviour
         TypeNextLine();
     }
 
-    void StopDialogue()
+    public void StopDialogue()
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
-        _player.EnableControls();
-        _playerHealth.Immune = false;
         _actions.Disable();
 
         wrapper.SetActive(false);
+        onDialogueEnd?.Invoke();
         _callback?.Invoke();
     }
 

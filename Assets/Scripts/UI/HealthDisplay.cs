@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class HealthDisplay : MonoBehaviour
 {
@@ -9,33 +8,21 @@ public class HealthDisplay : MonoBehaviour
     [SerializeField] Sprite fullHeart;
     [SerializeField] Sprite emptyHeart;
 
-    [Inject] PlayerHealth _playerHealth;
-
     readonly List<Image> _hearts = new();
 
-    void OnEnable()
+    public void Initialize(float health, float maxHealth)
     {
-        _playerHealth.onHealthChange += HandleHealthChange;
-    }
-
-    void OnDisable()
-    {
-        _playerHealth.onHealthChange += HandleHealthChange;
-    }
-
-    void Start()
-    {
-        for (var i = 0; i < _playerHealth.MaxHealth; ++i)
+        for (var i = _hearts.Count; i < maxHealth; ++i)
         {
             var heart = Instantiate(heartPrefab, transform);
             heart.sprite = fullHeart;
             _hearts.Add(heart);
         }
 
-        HandleHealthChange(_playerHealth.MaxHealth, _playerHealth.Health);
+        HandleHealthChange(maxHealth, health);
     }
 
-    void HandleHealthChange(float prevHealth, float curHealth)
+    public void HandleHealthChange(float prevHealth, float curHealth)
     {
         var min = Mathf.Min(prevHealth, curHealth);
         var max = Mathf.Max(prevHealth, curHealth);

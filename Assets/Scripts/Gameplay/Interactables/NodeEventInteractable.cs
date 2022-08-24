@@ -7,11 +7,6 @@ public class NodeEventInteractable : MonoBehaviour, IInteractable
 
     bool _triggered;
 
-    void OnValidate()
-    {
-        nodeEvent = gameObject.GetComponentInDirectChildren<NodeEvent>();
-    }
-
     public void Interact()
     {
         if (_triggered && !repeatable) return;

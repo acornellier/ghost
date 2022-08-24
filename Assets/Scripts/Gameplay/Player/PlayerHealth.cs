@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int maxHealth = 5;
     [SerializeField] float immuneTime = 0.5f;
+
+    [Inject] HealthDisplay _healthDisplay;
 
     public int MaxHealth => maxHealth;
 
@@ -29,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
             if (_health < prevHealth)
                 StartCoroutine(CO_TemporaryImmune());
 
+            _healthDisplay.HandleHealthChange(prevHealth, _health);
             onHealthChange?.Invoke(prevHealth, _health);
         }
     }
@@ -52,6 +56,11 @@ public class PlayerHealth : MonoBehaviour
     void Awake()
     {
         _health = maxHealth;
+    }
+
+    void Start()
+    {
+        _healthDisplay.Initialize(Health, MaxHealth);
     }
 
     IEnumerator CO_TemporaryImmune()

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 public class LevelLoader : MonoBehaviour
 {
@@ -11,29 +12,23 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] Image transitionImage;
     [SerializeField] float transitionTime = 1f;
 
+    [Inject] SavedStateManager _savedStateManager;
+
     public bool isLoaded;
 
-    void Start()
+    public void StartScene()
     {
-        StartCoroutine(StartLevel());
+        StartCoroutine(CO_StartScene());
     }
 
-    IEnumerator StartLevel()
+    public void LoadScene(string scene, string nextSpawn = null)
     {
-        yield return StartCoroutine(CO_StartScene());
-        isLoaded = true;
-    }
-
-    public void LoadScene(string scene)
-    {
-        StartCoroutine(CO_EndLevel(scene));
-    }
-
-    IEnumerator CO_EndLevel(string scene)
-    {
+        _savedStateManager.SavedState.nextSpawn = nextSpawn;
+        _savedStateManager.SavedState.scene = scene;
+        _savedStateManager.Save();
         audioSource.PlayOneShot(transitionClip);
-        yield return CO_EndScene();
-        SceneManager.LoadScene(scene);
+
+        StartCoroutine(CO_LoadScene(scene));
     }
 
     IEnumerator CO_StartScene()
@@ -49,10 +44,14 @@ public class LevelLoader : MonoBehaviour
             transitionImage.color = color;
             yield return null;
         }
+
+        isLoaded = true;
     }
 
-    IEnumerator CO_EndScene()
+    IEnumerator CO_LoadScene(string scene)
     {
+        isLoaded = false;
+
         var color = transitionImage.color;
         color.a = 0;
 
@@ -64,5 +63,7 @@ public class LevelLoader : MonoBehaviour
             transitionImage.color = color;
             yield return null;
         }
+
+        SceneManager.LoadScene(scene);
     }
 }

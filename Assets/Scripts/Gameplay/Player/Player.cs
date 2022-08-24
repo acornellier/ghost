@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Animancer;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Zenject;
 
@@ -16,7 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField] Stats stats;
     [SerializeField] Animations animations;
 
+    [Inject] DialogueManager _dialogueManager;
     [Inject] LevelLoader _levelLoader;
+    [Inject] SavedStateManager _savedStateManager;
 
     PlayerInputActions.PlayerActions _actions;
     AnimancerComponent _animancer;
@@ -39,17 +42,23 @@ public class Player : MonoBehaviour
     {
         EnableControls();
         health.onHealthChange += HandleHealthChange;
+        _dialogueManager.onDialogueStart += HandleDialogueStart;
+        _dialogueManager.onDialogueEnd += HandleDialogueEnd;
+        _actions.Interact.performed += OnInteract;
     }
 
     void OnDisable()
     {
-        DisablePlayerControls();
-        health.onHealthChange += HandleHealthChange;
+        DisableControls();
+        health.onHealthChange -= HandleHealthChange;
+        _dialogueManager.onDialogueStart -= HandleDialogueStart;
+        _dialogueManager.onDialogueEnd -= HandleDialogueEnd;
+        _actions.Interact.performed -= OnInteract;
     }
 
     void Start()
     {
-        _actions.Interact.performed += (_) => Interact();
+        SpawnAtSpawnPoint();
     }
 
     void FixedUpdate()
@@ -57,6 +66,21 @@ public class Player : MonoBehaviour
         UpdateMovement();
         UpdateDirection();
         UpdateAnimations();
+    }
+
+    void SpawnAtSpawnPoint()
+    {
+        var nextSpawn = _savedStateManager.SavedState.nextSpawn;
+        if (nextSpawn == null) return;
+
+        foreach (var spawnPoint in FindObjectsOfType<SpawnPoint>())
+        {
+            if (spawnPoint.spawnTag != nextSpawn) continue;
+
+            transform.position = spawnPoint.transform.position;
+            _facingDirection = spawnPoint.spawnDirection;
+            break;
+        }
     }
 
     void UpdateMovement()
@@ -96,12 +120,12 @@ public class Player : MonoBehaviour
         _actions.Enable();
     }
 
-    public void DisablePlayerControls()
+    public void DisableControls()
     {
         _actions.Disable();
     }
 
-    void Interact()
+    void OnInteract(InputAction.CallbackContext _)
     {
         GetInteractor()?.Interact();
     }
@@ -131,6 +155,18 @@ public class Player : MonoBehaviour
         }
 
         StartCoroutine(FlashSprite());
+    }
+
+    void HandleDialogueStart()
+    {
+        DisableControls();
+        health.Immune = true;
+    }
+
+    void HandleDialogueEnd()
+    {
+        EnableControls();
+        health.Immune = false;
     }
 
     IEnumerator FlashSprite()

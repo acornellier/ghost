@@ -5,6 +5,7 @@ using Zenject;
 public class SceneTransition : MonoBehaviour
 {
     [SerializeField] string scene;
+    [SerializeField] string spawnTag;
 
     [Inject] LevelLoader _levelLoader;
 
@@ -13,6 +14,7 @@ public class SceneTransition : MonoBehaviour
         var player = col.GetComponent<Player>();
         if (player == null) return;
 
-        _levelLoader.LoadScene(scene);
+        _levelLoader.LoadScene(scene, spawnTag);
+        player.DisableControls();
     }
 }
