@@ -68,6 +68,8 @@ public class ShadowHand : MonoBehaviour
             );
             yield return null;
         }
+
+        _state = State.Inactive;
     }
 
     enum State

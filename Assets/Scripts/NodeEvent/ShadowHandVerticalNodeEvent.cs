@@ -6,8 +6,7 @@ public class ShadowHandVerticalNodeEvent : NodeEvent
 {
     [SerializeField] ShadowHandVertical shadowHand;
     [SerializeField] float prepareTime = 2;
-    [SerializeField] float prepareSpeed = 5;
-    [SerializeField] bool onPlayer;
+    [SerializeField] bool onPlayer = true;
 
     [Inject] Ghost _ghost;
 
@@ -15,8 +14,7 @@ public class ShadowHandVerticalNodeEvent : NodeEvent
     {
         _ghost.StartCasting();
 
-        shadowHand.Prepare(prepareSpeed, onPlayer);
-        yield return new WaitForSeconds(prepareTime);
+        yield return shadowHand.CO_Prepare(prepareTime, onPlayer);
         yield return shadowHand.CO_Charge();
     }
 }
