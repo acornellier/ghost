@@ -15,36 +15,31 @@ public class DialogueImage : MonoBehaviour
     [SerializeField] float spriteSpeed = 10;
     [SerializeField] float timeBetweenSentences = 0.5f;
 
-    public Action onDialogueStart;
-    public Action onDialogueEnd;
-
     Dialogue _currentDialogue;
     Coroutine _coroutine;
-    Action _callback;
 
-    void OnNextInput()
+    public bool IsDone()
     {
-        if (contents.maxVisibleCharacters >= _currentDialogue.line.Length)
-        {
-            TypeNextLine();
-            return;
-        }
+        return contents.maxVisibleCharacters >= _currentDialogue.line.Length;
+    }
 
+    public void SkipToEndOfLine()
+    {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
         contents.maxVisibleCharacters = _currentDialogue.line.Length;
     }
 
-    void TypeNextLine()
+    public void TypeNextLine(Dialogue dialogue)
     {
-        if (_dialogues.Count <= 0)
-        {
-            StopDialogue();
-            return;
-        }
+        _coroutine = StartCoroutine(CO_TypeNextLine(dialogue));
+    }
 
-        _coroutine = StartCoroutine(CO_TypeNextLine());
+    public void StopCoroutine()
+    {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
     }
 
     IEnumerator CO_TypeNextLine(Dialogue dialogue)

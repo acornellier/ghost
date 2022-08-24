@@ -211,7 +211,7 @@ MonoBehaviour:
   isActive: 0
   destination: {fileID: 1556453986}
   speed: 10
-  fly: 1
+  fly: 0
   offset: {x: 0, y: 0}
 --- !u!1 &238375007
 GameObject:
@@ -350,6 +350,8 @@ MonoBehaviour:
   - {fileID: 1741811311}
   - {fileID: 1271259889}
   - {fileID: 897926163}
+  - {fileID: 2100267387}
+  - {fileID: 216026383}
   playOnStart: 0
 --- !u!114 &373268936
 MonoBehaviour:
@@ -826,11 +828,13 @@ MonoBehaviour:
     wobble: 0
     line: "Hubert said he wouldn\u2019t leave me alone! He said when he passed that
       he would join me! HE LIED! "
+    topOfScreen: 1
   - character: {fileID: 11400000, guid: 2b432f36ed3fcf04d874f6bcd4f89fd6, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "I\u2019M SORRY! He- He must have been very special to you! "
+    topOfScreen: 0
 --- !u!1 &1101485179
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,7 +4850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1561880773
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4871,7 +4875,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 50, y: 1}
+  m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
 --- !u!4 &1561880774
 Transform:
@@ -4881,7 +4885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561880772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.08, z: 0}
+  m_LocalPosition: {x: -0.14, y: -7.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5280,6 +5284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 1842301911832641734, guid: 8df2f6cde45f25e43a8d491c10b9baf0, type: 3}
+      propertyPath: animations.idleUp
+      value: 
+      objectReference: {fileID: 7400000, guid: e5aac7fb455ec3d47bc65cfd8284c9a7, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8df2f6cde45f25e43a8d491c10b9baf0, type: 3}

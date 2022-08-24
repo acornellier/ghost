@@ -10,7 +10,7 @@ public class Dialogue
     public FontStyles fontStyle;
     public Wobble wobble = Wobble.None;
     [TextArea(3, 10)] public string line;
-    bool topOfScreen;
+    public bool topOfScreen;
 }
 
 public enum DialogueFontSize

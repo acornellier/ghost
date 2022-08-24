@@ -114,7 +114,7 @@ public class Ghost : MonoBehaviour
             yield return null;
         }
 
-        _animancer.Play(_facingUp ? animations.idleUp : animations.idle);
+        PlayIdleAnimation();
     }
 
     public void StartAttacking()
@@ -135,7 +135,12 @@ public class Ghost : MonoBehaviour
     void UpdateAnimations()
     {
         if (_state == State.None)
-            _animancer.Play(animations.idle);
+            PlayIdleAnimation();
+    }
+
+    void PlayIdleAnimation()
+    {
+        _animancer.Play(_facingUp ? animations.idleUp : animations.idle);
     }
 
     void OnTriggerEnter2D(Collider2D col)
