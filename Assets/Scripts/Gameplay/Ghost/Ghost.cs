@@ -10,7 +10,6 @@ public class Ghost : MonoBehaviour
     [SerializeField] float speed = 5;
     [SerializeField] NodeEvent combatNodeEvent;
     [SerializeField] AudioClip fightMusic;
-    [SerializeField] bool combatOnStart;
     [SerializeField] Animations animations;
 
     [Inject] MusicPlayer _musicPlayer;
@@ -51,11 +50,6 @@ public class Ghost : MonoBehaviour
     {
         _animancer = GetComponent<AnimancerComponent>();
         _wallLayer = LayerMask.NameToLayer("Wall");
-    }
-
-    void Start()
-    {
-        if (combatOnStart) StartCombatSequence();
     }
 
     void FixedUpdate()
@@ -114,19 +108,16 @@ public class Ghost : MonoBehaviour
             _animancer.Play(animations.idle);
     }
 
-    public void StartCombatSequence()
-    {
-        StartCoroutine(CO_RunCombatEvent());
-    }
-
-    IEnumerator CO_RunCombatEvent()
+    public void StartCombat(NodeEvent nodeEvent)
     {
         Moving = true;
-
         _musicPlayer.PlayMusic(fightMusic);
         _healthDisplay.Show();
-        yield return combatNodeEvent.Run();
+        nodeEvent.Run();
+    }
 
+    public void EndCombat()
+    {
         _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
         _healthDisplay.Hide();
     }

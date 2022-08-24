@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,7 +117,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: shadowhand_up_attack_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 175
+        width: 87
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65907c072858f43a1a35c366998bfcfa
+      internalID: -353337040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 175
+        width: 87
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a616a4698fabd4c62841f84b4536391f
+      internalID: -1064824252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 175
+        width: 87
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2e62f66233d4dedb4de89ef3982bcd
+      internalID: -1443981505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_3
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 175
+        width: 87
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128e52d0233044d2a856afb8382e8bd8
+      internalID: 864277702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_4
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 175
+        width: 87
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccba3783c8f7a492aab54c9adcf9f1a4
+      internalID: 673434943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 87
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fcee04201c847d98dc6e2606a95ea8
+      internalID: -1074885676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1
+        width: 89
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c104356de3c49419c3644a9901b76a
+      internalID: -202971755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_7
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 2
+        width: 87
+        height: 147
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07bd5278ef9d44eaab1d6ff07e9efcb6
+      internalID: 1518142523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_8
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 1
+        width: 89
+        height: 168
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53510748d3dc74e638c348e88965e8de
+      internalID: -1467080053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowhand_up_attack_9
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 2
+        width: 87
+        height: 164
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c2f6a027b8c454c91e6d241420e230
+      internalID: -2082484381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -128,7 +338,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shadowhand_up_attack_7: 1518142523
+      shadowhand_up_attack_1: -1064824252
+      shadowhand_up_attack_0: -353337040
+      shadowhand_up_attack_2: -1443981505
+      shadowhand_up_attack_5: -1074885676
+      shadowhand_up_attack_4: 673434943
+      shadowhand_up_attack_8: -1467080053
+      shadowhand_up_attack_6: -202971755
+      shadowhand_up_attack_3: 864277702
+      shadowhand_up_attack_9: -2082484381
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

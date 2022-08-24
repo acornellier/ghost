@@ -52,7 +52,6 @@ public class BulletsNodeEvent : NodeEvent
             var directionY = transform.position.y + Mathf.Cos(angle / 180f * Mathf.PI);
             var moveVector = new Vector2(directionX, directionY);
             var direction = (moveVector - (Vector2)transform.position).normalized;
-            d.log("bullet", angle, direction);
 
             var bullet = _pool.Get();
             bullet.Initialize(_pool, direction, bulletSpeed);
