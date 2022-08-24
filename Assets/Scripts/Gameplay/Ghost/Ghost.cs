@@ -20,6 +20,7 @@ public class Ghost : MonoBehaviour
     State _state = State.None;
 
     Vector2 _direction = Vector2.right;
+    bool _facingUp;
 
     Vector2 Direction
     {
@@ -89,6 +90,11 @@ public class Ghost : MonoBehaviour
         _state = State.None;
     }
 
+    public void SetFacingUp(bool facingUp)
+    {
+        _facingUp = facingUp;
+    }
+
     public IEnumerator CO_FlyTo(Vector2 target, float flySpeed, bool fly)
     {
         _state = State.Flying;
@@ -108,7 +114,7 @@ public class Ghost : MonoBehaviour
             yield return null;
         }
 
-        _animancer.Play(animations.idle);
+        _animancer.Play(_facingUp ? animations.idleUp : animations.idle);
     }
 
     public void StartAttacking()
@@ -150,6 +156,7 @@ public class Ghost : MonoBehaviour
     class Animations
     {
         public AnimationClip idle;
+        public AnimationClip idleUp;
         public AnimationClip attacking;
         public AnimationClip cast;
         public AnimationClip castLoop;

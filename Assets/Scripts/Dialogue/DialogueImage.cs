@@ -6,10 +6,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueImage : MonoBehaviour
 {
     [SerializeField] Image talkingHead;
-    [SerializeField] Image talkingHeadTop;
     [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text contents;
     [SerializeField] float textSpeed = 50;
@@ -19,57 +18,11 @@ public class DialogueManager : MonoBehaviour
     public Action onDialogueStart;
     public Action onDialogueEnd;
 
-    PlayerInputActions.PlayerActions _actions;
-
-    Queue<Dialogue> _dialogues;
     Dialogue _currentDialogue;
     Coroutine _coroutine;
     Action _callback;
 
-    void Awake()
-    {
-        _actions = new PlayerInputActions().Player;
-    }
-
-    void Start()
-    {
-        talkingHead.gameObject.SetActive(false);
-        _actions.Interact.performed += OnNextInput;
-        _actions.SkipDialogue.performed += OnSkipDialogue;
-    }
-
-    void OnDisable()
-    {
-        StopDialogue();
-        _actions.Interact.performed -= OnNextInput;
-        _actions.SkipDialogue.performed -= OnSkipDialogue;
-    }
-
-    public void StartDialogue(IEnumerable<Dialogue> dialogues, Action callback = null)
-    {
-        onDialogueStart?.Invoke();
-        _actions.Enable();
-
-        talkingHead.gameObject.SetActive(true);
-        _dialogues = new Queue<Dialogue>(dialogues);
-        _callback = callback;
-        TypeNextLine();
-    }
-
-    public void StopDialogue()
-    {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
-        _actions.Disable();
-
-        talkingHead.gameObject.SetActive(false);
-        onDialogueEnd?.Invoke();
-        _callback?.Invoke();
-        _callback = null;
-    }
-
-    void OnNextInput(InputAction.CallbackContext ctx)
+    void OnNextInput()
     {
         if (contents.maxVisibleCharacters >= _currentDialogue.line.Length)
         {
@@ -79,12 +32,8 @@ public class DialogueManager : MonoBehaviour
 
         if (_coroutine != null)
             StopCoroutine(_coroutine);
-        contents.maxVisibleCharacters = _currentDialogue.line.Length;
-    }
 
-    void OnSkipDialogue(InputAction.CallbackContext ctx)
-    {
-        StopDialogue();
+        contents.maxVisibleCharacters = _currentDialogue.line.Length;
     }
 
     void TypeNextLine()
@@ -98,9 +47,9 @@ public class DialogueManager : MonoBehaviour
         _coroutine = StartCoroutine(CO_TypeNextLine());
     }
 
-    IEnumerator CO_TypeNextLine()
+    IEnumerator CO_TypeNextLine(Dialogue dialogue)
     {
-        _currentDialogue = _dialogues.Dequeue();
+        _currentDialogue = dialogue;
         talkingHead.sprite = _currentDialogue.character.mouthClosedSprite;
         title.text = _currentDialogue.character.characterName;
         InitializeContents(_currentDialogue);
