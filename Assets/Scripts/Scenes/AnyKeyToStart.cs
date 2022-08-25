@@ -5,11 +5,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using Zenject;
 
 public class AnyKeyToStart : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] UnityEvent unityEvent;
+
+    [Inject] SavedStateManager _savedStateManager;
 
     Coroutine _fadeInCoroutine;
 
@@ -26,6 +29,9 @@ public class AnyKeyToStart : MonoBehaviour
         InputSystem.onAnyButtonPress.CallOnce(
             (_) =>
             {
+                // TODO: probably bad
+                _savedStateManager.Reset();
+
                 unityEvent.Invoke();
 
                 if (_fadeInCoroutine != null)

@@ -20,7 +20,7 @@ public class DialogueImage : MonoBehaviour
 
     public bool IsDone()
     {
-        return contents.maxVisibleCharacters >= _currentDialogue.line.Length;
+        return contents.maxVisibleCharacters >= _currentDialogue.line.Length - 1;
     }
 
     public void SkipToEndOfLine()

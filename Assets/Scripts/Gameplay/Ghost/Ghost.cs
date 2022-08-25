@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Animancer;
 using UnityEngine;
 using Zenject;
@@ -17,8 +18,8 @@ public class Ghost : MonoBehaviour
     AnimancerComponent _animancer;
     int _wallLayer;
 
+    readonly Queue<SceneTransition> _disabledSceneTransitions = new();
     State _state = State.None;
-
     Vector2 _direction = Vector2.right;
     bool _facingUp;
 
@@ -62,12 +63,12 @@ public class Ghost : MonoBehaviour
 
     public void StartCombat(NodeEvent nodeEvent)
     {
-        Moving = true;
         _musicPlayer.PlayMusic(fightMusic);
         _healthDisplay.Show();
 
         foreach (var sceneTransition in FindObjectsOfType<SceneTransition>())
         {
+            _disabledSceneTransitions.Enqueue(sceneTransition);
             sceneTransition.gameObject.SetActive(false);
         }
 
@@ -84,7 +85,7 @@ public class Ghost : MonoBehaviour
         _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
         _healthDisplay.Hide();
 
-        foreach (var sceneTransition in FindObjectsOfType<SceneTransition>())
+        while (_disabledSceneTransitions.TryDequeue(out var sceneTransition))
         {
             sceneTransition.gameObject.SetActive(true);
         }
