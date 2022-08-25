@@ -14476,9 +14476,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piano
       objectReference: {fileID: 0}
+    - target: {fileID: 6917343224193482034, guid: 7856291d02d15c744b05243d9e31cd86, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917343224193482035, guid: 7856291d02d15c744b05243d9e31cd86, type: 3}
+      propertyPath: flingSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6917343224193482035, guid: 7856291d02d15c744b05243d9e31cd86, type: 3}
       propertyPath: shakeAngle
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6917343224193482036, guid: 7856291d02d15c744b05243d9e31cd86, type: 3}
       propertyPath: m_Sprite

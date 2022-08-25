@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using Zenject;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Light2D))]
@@ -32,8 +33,7 @@ public class Flingable : MonoBehaviour
     [Inject] Player _player;
 
     State _state = State.Inactive;
-    float _flingTime;
-    float _settleTime;
+    float _lastStateTimestamp;
 
     void Awake()
     {
@@ -48,25 +48,26 @@ public class Flingable : MonoBehaviour
 
     void FixedUpdate()
     {
+        var timeSinceState = Time.time - _lastStateTimestamp;
+
         switch (_state)
         {
             case State.Inactive:
                 return;
             case State.Lifting:
-                _body.MovePosition(
-                    (Vector2)transform.position + liftSpeed * Time.fixedDeltaTime * Vector2.up
-                );
+                if (timeSinceState < 2f)
+                    _body.MovePosition(
+                        (Vector2)transform.position + liftSpeed * Time.fixedDeltaTime * Vector2.up
+                    );
                 break;
             case State.Flinging:
-                var timeSinceFling = Time.time - _flingTime;
-                if (timeSinceFling > 5f ||
+                if (timeSinceState > 5f ||
                     (_body.velocity.magnitude < 0.1f && _body.angularVelocity < 0.1f))
                     Settle();
                 break;
             case State.Settling:
-                var timeSinceSettle = Time.time - _settleTime;
-                if (timeSinceSettle > 5f ||
-                    (timeSinceSettle > 1f &&
+                if (timeSinceState > 5f ||
+                    (timeSinceState > 1f &&
                      _body.velocity.magnitude < 0.1f && _body.angularVelocity < 0.1f))
                     GoInactive();
                 break;
@@ -98,6 +99,7 @@ public class Flingable : MonoBehaviour
     public void Lift()
     {
         _state = State.Lifting;
+        _lastStateTimestamp = Time.time;
 
         liftSource.Stop();
         liftSource.Play();
@@ -109,7 +111,7 @@ public class Flingable : MonoBehaviour
     public void Fling()
     {
         _state = State.Flinging;
-        _flingTime = Time.time;
+        _lastStateTimestamp = Time.time;
 
         StartCoroutine(FadeOutLiftSound());
         flingSource.PlayOneShot(flingClip);
@@ -120,11 +122,18 @@ public class Flingable : MonoBehaviour
         _body.AddForce(flingSpeed * direction, ForceMode2D.Impulse);
     }
 
+    public void Drop()
+    {
+        _body.AddForce(10 * Vector2.down, ForceMode2D.Impulse);
+        Settle();
+    }
+
     void Settle()
     {
         _state = State.Settling;
-        _settleTime = Time.time;
-        Physics2D.IgnoreCollision(_collider, _player.GetComponent<Collider2D>(), false);
+        _lastStateTimestamp = Time.time;
+        if (liftSource.isPlaying)
+            StartCoroutine(FadeOutLiftSound());
         StartCoroutine(FadeOutLight());
     }
 
@@ -147,6 +156,8 @@ public class Flingable : MonoBehaviour
 
     IEnumerator Shake()
     {
+        _body.SetRotation(Random.Range(-shakeAngle, shakeAngle));
+
         var angleMultiplier = 1;
         while (_state == State.Lifting)
         {
