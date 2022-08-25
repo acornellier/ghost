@@ -22,6 +22,7 @@ public class Flingable : MonoBehaviour
     [SerializeField] float lightIntensity = 10f;
     [SerializeField] float flingSpeed = 50;
     [SerializeField] Color lightColor = new(0, 0.4f, 1);
+    [SerializeField] bool stayDynamicOnSpawn;
 
     Light2D _light;
     Collider2D _collider;
@@ -41,7 +42,8 @@ public class Flingable : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         _collisionMask = LayerMask.GetMask("Furniture", "Player", "Wall");
 
-        _body.bodyType = RigidbodyType2D.Kinematic;
+        if (!stayDynamicOnSpawn)
+            _body.bodyType = RigidbodyType2D.Kinematic;
     }
 
     void FixedUpdate()
@@ -57,7 +59,8 @@ public class Flingable : MonoBehaviour
                 break;
             case State.Flinging:
                 var timeSinceFling = Time.time - _flingTime;
-                if (timeSinceFling > 5f)
+                if (timeSinceFling > 5f ||
+                    (_body.velocity.magnitude < 0.1f && _body.angularVelocity < 0.1f))
                     Settle();
                 break;
             case State.Settling:
