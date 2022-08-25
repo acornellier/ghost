@@ -19,7 +19,7 @@ public class FoyerInstaller : MonoInstaller
         var isRoundTwo = ballroomCombat && !foyerCombat;
 
         // TODO
-        isRoundTwo = true;
+        // isRoundTwo = true;
 
         foreach (var go in roundTwoActivate)
         {

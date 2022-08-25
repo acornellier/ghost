@@ -56,4 +56,9 @@ public class SavedStateManager
     {
         return SavedState.bools.TryGetValue(key, out var value) && value;
     }
+
+    public void SetBool(string key, bool value = true)
+    {
+        SavedState.bools[key] = value;
+    }
 }

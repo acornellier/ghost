@@ -124,7 +124,7 @@ public class Flingable : MonoBehaviour
 
     public void Drop()
     {
-        _body.AddForce(10 * Vector2.down, ForceMode2D.Impulse);
+        _body.AddForce(5 * Vector2.down, ForceMode2D.Impulse);
         Settle();
     }
 
