@@ -18,13 +18,5 @@ public class DebugShortcuts : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
     }
 }

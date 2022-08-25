@@ -261,17 +261,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""91442af7-7cef-4465-a241-5c4a5075c6d0"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""1fdc47d6-3933-44a5-a7ce-73a059ebbd3d"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
