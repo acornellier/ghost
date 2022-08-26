@@ -6,6 +6,7 @@ public class HealthDisplay : MonoBehaviour
 {
     [SerializeField] Image heartPrefab;
     [SerializeField] Sprite fullHeart;
+    [SerializeField] Sprite halfHeart;
     [SerializeField] Sprite emptyHeart;
 
     readonly List<Image> _hearts = new();
@@ -30,8 +31,14 @@ public class HealthDisplay : MonoBehaviour
 
         for (var i = Mathf.FloorToInt(min); i < Mathf.CeilToInt(max); ++i)
         {
-            var heartHealth = Mathf.CeilToInt(Mathf.Clamp01(curHealth - i));
-            _hearts[i].sprite = heartHealth == 0 ? emptyHeart : fullHeart;
+            var heartHealth = curHealth - i;
+            _hearts[i].sprite =
+                heartHealth switch
+                {
+                    0 => emptyHeart,
+                    1 => fullHeart,
+                    _ => halfHeart,
+                };
         }
     }
 

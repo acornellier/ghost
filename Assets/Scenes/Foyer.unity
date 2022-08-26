@@ -22140,10 +22140,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3414828613999222813, guid: b730ab2e9c081434dafcc6cafc4782d2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414828613999222813, guid: b730ab2e9c081434dafcc6cafc4782d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.3
       objectReference: {fileID: 0}
@@ -24564,6 +24560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17a676c0dad453bb4e4bb904c38db35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overrideMusic: {fileID: 0}
 --- !u!114 &1555357321
 MonoBehaviour:
   m_ObjectHideFlags: 0

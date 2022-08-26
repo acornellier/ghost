@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
         var playerHealth = col.GetComponent<PlayerHealth>();
         if (playerHealth)
         {
-            playerHealth.Health -= 1;
+            playerHealth.Health -= 0.5f;
             return;
         }
 

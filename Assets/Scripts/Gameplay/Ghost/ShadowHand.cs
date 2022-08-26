@@ -6,6 +6,12 @@ public class ShadowHand : MonoBehaviour
     [SerializeField] Transform prepareTarget;
     [SerializeField] Transform chargeTarget;
 
+    [SerializeField] AudioSource prepareSource;
+    [SerializeField] AudioClip prepareClip;
+
+    [SerializeField] AudioSource chargeSource;
+    [SerializeField] AudioClip chargeClip;
+
     Vector3 _intialPosition;
     State _state = State.Inactive;
 
@@ -31,6 +37,8 @@ public class ShadowHand : MonoBehaviour
 
     IEnumerator CO_Prepare(float prepareSpeed)
     {
+        // prepareSource.PlayOneShot(prepareClip);
+
         while (_state == State.Preparing &&
                Vector2.Distance(transform.position, prepareTarget.position) > 0.1f)
         {
@@ -46,6 +54,9 @@ public class ShadowHand : MonoBehaviour
     public IEnumerator CO_Charge(float chargeSpeed)
     {
         _state = State.Charging;
+
+        // prepareSource.Stop();
+        // chargeSource.PlayOneShot(chargeClip);
 
         while (Vector2.Distance(transform.position, chargeTarget.position) > 0.1f)
         {

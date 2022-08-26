@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 3778123141690876460, guid: 50218afdf495940488f231e6d874b2f5, type: 3}
   fullHeart: {fileID: -1438638101, guid: f408d99622f08924798303f74ac0fbb6, type: 3}
+  halfHeart: {fileID: 21300000, guid: 9fe59050a3ef8f14584a2d1bb91e0861, type: 3}
   emptyHeart: {fileID: 521613657, guid: f408d99622f08924798303f74ac0fbb6, type: 3}
 --- !u!114 &5888186286694337745
 MonoBehaviour:
@@ -136,7 +137,7 @@ RectTransform:
   m_Children:
   - {fileID: 5888186286694337749}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
