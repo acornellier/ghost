@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         UpdateAnimations();
     }
 
-    void SpawnAtSpawnPoint()
+    public void SpawnAtSpawnPoint()
     {
         var nextSpawn = _savedStateManager.SavedState.nextSpawn;
         if (nextSpawn == null) return;

@@ -1167,6 +1167,7 @@ Transform:
   - {fileID: 1741811310}
   - {fileID: 1271259888}
   - {fileID: 897926162}
+  - {fileID: 1477367586}
   - {fileID: 2100267386}
   - {fileID: 216026382}
   - {fileID: 1183069078}
@@ -1219,6 +1220,7 @@ MonoBehaviour:
   - {fileID: 1741811311}
   - {fileID: 1271259889}
   - {fileID: 897926163}
+  - {fileID: 1477367587}
   - {fileID: 2100267387}
   - {fileID: 216026383}
   - {fileID: 1183069079}
@@ -9509,6 +9511,69 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7511718263635262733, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 3664492527346358215}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1477367585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1477367586}
+  - component: {fileID: 1477367587}
+  m_Layer: 0
+  m_Name: EnableControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1477367586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477367585}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.01, y: -2.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 349663566}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1477367587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477367585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd08c6045a4a416fb2de8d0772a65a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelayTime: 0
+  endDelayTime: 0
+  isDone: 0
+  isActive: 0
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 770394164}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: EnableControls
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1490845450
 GameObject:
   m_ObjectHideFlags: 0

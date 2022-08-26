@@ -7,7 +7,6 @@ public class FoyerInstaller : MonoBehaviour
     [SerializeField] GameObject combatTrigger;
     [SerializeField] GameObject[] roundTwoDeactivate;
     [SerializeField] NodeEvent combatSequence2;
-    [SerializeField] Transform playerSpawnHalf;
 
     [Inject] Ghost _ghost;
     [Inject] Player _player;
@@ -39,8 +38,15 @@ public class FoyerInstaller : MonoBehaviour
 
     IEnumerator LoadHalfCombat()
     {
+        if (_savedStateManager.SavedState.nextSpawn != "Outside")
+        {
+            _savedStateManager.SavedState.nextSpawn = "Outside";
+            _savedStateManager.Save();
+        }
+
+        // delay spawn and combat by 1 tick to avoid random start orders
         yield return null;
-        _player.transform.position = playerSpawnHalf.position;
+        _player.SpawnAtSpawnPoint();
         _ghost.StartCombat(combatSequence2);
     }
 }

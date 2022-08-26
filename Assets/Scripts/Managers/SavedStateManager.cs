@@ -26,7 +26,7 @@ public class SavedStateManager
 
     const string _key = "SavedState";
 
-    public void Initialize()
+    void Initialize()
     {
         var jsonString = PlayerPrefs.GetString(_key);
         if (jsonString != "")
