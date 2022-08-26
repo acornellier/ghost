@@ -13174,7 +13174,7 @@ MonoBehaviour:
     line: Perfect. My finest work.
     topOfScreen: 0
   savedStateKey: CoffeeTableJohnWuzHere
-  spriteSwap: {fileID: 21300000, guid: e68783aee15e5489f8c7a5cdf84f816b, type: 3}
+  spriteSwap: {fileID: -1801870759, guid: e68783aee15e5489f8c7a5cdf84f816b, type: 3}
 --- !u!1 &5758238513633440512
 GameObject:
   m_ObjectHideFlags: 0

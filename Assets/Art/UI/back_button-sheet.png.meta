@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e68783aee15e5489f8c7a5cdf84f816b
+guid: 91b85548b4db04c42b3a6972cc17390c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffee_table_john_wuz_here_0
+      name: back_button-sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 48
-        height: 32
+        x: 2
+        y: 2
+        width: 100
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b777cce3754c1004bb5a2f07e01ca9fa
-      internalID: -1801870759
+      spriteID: f28144f8dc72c7b4cabd64d19b974580
+      internalID: -1162039029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coffee_table_john_wuz_here_1
+      name: back_button-sheet_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 32
+        x: 105
+        y: 2
+        width: 100
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0a8a7dccfbc3c74da620c9284d673aa
-      internalID: -1332926175
+      spriteID: 511c277f6e29a124aadee3ed21bf3724
+      internalID: -1914455489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 2
+        width: 100
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507e51fff340ae148958ef0c0724d1b8
+      internalID: 523595542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back_button-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 2
+        width: 100
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c21f385b615d745a335db9e20d808b
+      internalID: 1304247754
       vertices: []
       indices: 
       edges: []
@@ -171,8 +213,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      coffee_table_john_wuz_here_1: -1332926175
-      coffee_table_john_wuz_here_0: -1801870759
+      back_button-sheet_0: -1162039029
+      back_button-sheet_3: 1304247754
+      back_button-sheet_1: -1914455489
+      back_button-sheet_2: 523595542
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

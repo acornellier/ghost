@@ -25,7 +25,8 @@ public class NodeParallel : NodeEvent
         foreach (var nodeEvent in nodeEvents)
         {
             nodeEvent.Run();
-            yield return new WaitForSeconds(timeBetweenStarts);
+            if (timeBetweenStarts > 0)
+                yield return new WaitForSeconds(timeBetweenStarts);
         }
 
         foreach (var nodeEvent in nodeEvents)

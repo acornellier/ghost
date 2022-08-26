@@ -10,6 +10,8 @@ public class Ghost : MonoBehaviour
 {
     [SerializeField] float speed = 5;
     [SerializeField] AudioClip fightMusic;
+    [SerializeField] AudioClip appearClip;
+    [SerializeField] AudioSource appearSource;
     [SerializeField] Animations animations;
 
     [Inject] MusicPlayer _musicPlayer;
@@ -120,7 +122,16 @@ public class Ghost : MonoBehaviour
             yield return null;
         }
 
-        PlayIdleAnimation();
+        ResetToIdle();
+    }
+
+    public void Appear()
+    {
+        _state = State.Appearing;
+        var state = _animancer.Play(animations.appear);
+        state.Events.OnEnd += ResetToIdle;
+
+        appearSource.PlayOneShot(appearClip);
     }
 
     public void StartAttacking()
@@ -144,6 +155,12 @@ public class Ghost : MonoBehaviour
             PlayIdleAnimation();
     }
 
+    void ResetToIdle()
+    {
+        _state = State.None;
+        PlayIdleAnimation();
+    }
+
     void PlayIdleAnimation()
     {
         _animancer.Play(_facingUp ? animations.idleUp : animations.idle);
@@ -158,6 +175,7 @@ public class Ghost : MonoBehaviour
     enum State
     {
         None,
+        Appearing,
         Flying,
         Attacking,
         Casting,
@@ -172,5 +190,6 @@ public class Ghost : MonoBehaviour
         public AnimationClip cast;
         public AnimationClip castLoop;
         public AnimationClip flyLeft;
+        public AnimationClip appear;
     }
 }
