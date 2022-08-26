@@ -21,7 +21,7 @@ public class FoyerInstaller : MonoBehaviour
         var halfFoyerCombat = _savedStateManager.IsBoolSet("FoyerCombatHalf");
 
         // TODO
-        isRoundTwo = true;
+        // isRoundTwo = true;
 
         foreach (var go in roundTwoDeactivate)
         {
