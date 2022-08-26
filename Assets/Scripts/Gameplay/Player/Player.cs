@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     Rigidbody2D _body;
     SpriteRenderer _renderer;
 
+    bool _controlsDisabledForDialogue;
     bool _animationsDisabled;
     Vector2 _facingDirection = Vector2.up;
 
@@ -122,6 +123,7 @@ public class Player : MonoBehaviour
     public void EnableControls()
     {
         _actions.Enable();
+        _controlsDisabledForDialogue = false;
     }
 
     public void DisableControls()
@@ -175,14 +177,22 @@ public class Player : MonoBehaviour
 
     void HandleDialogueStart()
     {
-        DisableControls();
-        health.Immune = true;
+        if (_actions.enabled)
+        {
+            DisableControls();
+            health.Immune = true;
+            _controlsDisabledForDialogue = true;
+        }
     }
 
     void HandleDialogueEnd()
     {
-        EnableControls();
-        health.Immune = false;
+        if (_controlsDisabledForDialogue)
+        {
+            EnableControls();
+            health.Immune = false;
+            _controlsDisabledForDialogue = false;
+        }
     }
 
     IEnumerator FlashSprite()

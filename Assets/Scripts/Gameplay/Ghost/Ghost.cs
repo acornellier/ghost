@@ -16,6 +16,7 @@ public class Ghost : MonoBehaviour
 
     [Inject] MusicPlayer _musicPlayer;
     [Inject] HealthDisplay _healthDisplay;
+    [Inject] Player _player;
 
     AnimancerComponent _animancer;
     int _wallLayer;
@@ -65,6 +66,7 @@ public class Ghost : MonoBehaviour
 
     public void StartCombat(NodeEvent nodeEvent)
     {
+        _player.EnableControls();
         _musicPlayer.PlayMusic(fightMusic);
         _healthDisplay.Show();
 
