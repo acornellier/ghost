@@ -15,8 +15,6 @@ public class FoyerInstaller : MonoBehaviour
     void Start()
     {
         var ballroomCombat = _savedStateManager.IsBoolSet("BallroomCombat");
-        var foyerCombat = _savedStateManager.IsBoolSet("FoyerCombat");
-        var isRoundTwo = ballroomCombat && !foyerCombat;
         var halfFoyerCombat = _savedStateManager.IsBoolSet("FoyerCombatHalf");
 
         // TODO
@@ -24,16 +22,16 @@ public class FoyerInstaller : MonoBehaviour
 
         foreach (var go in roundTwoDeactivate)
         {
-            go.SetActive(!isRoundTwo);
+            go.SetActive(!ballroomCombat);
         }
 
-        if (halfFoyerCombat && !foyerCombat)
+        if (halfFoyerCombat)
         {
             StartCoroutine(LoadHalfCombat());
             return;
         }
 
-        combatTrigger.SetActive(isRoundTwo);
+        combatTrigger.SetActive(ballroomCombat);
     }
 
     IEnumerator LoadHalfCombat()

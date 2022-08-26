@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  immuneTime: 0.5
+  immuneTime: 1
 --- !u!61 &992387324994089128
 BoxCollider2D:
   m_ObjectHideFlags: 0

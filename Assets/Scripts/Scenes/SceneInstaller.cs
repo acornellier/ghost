@@ -1,7 +1,10 @@
+using UnityEngine;
 using Zenject;
 
 public class SceneInstaller : MonoInstaller
 {
+    [SerializeField] AudioClip overrideMusic;
+
     [Inject] LevelLoader _levelLoader;
     [Inject] DialogueManager _dialogueManager;
     [Inject] MusicPlayer _musicPlayer;
@@ -19,7 +22,7 @@ public class SceneInstaller : MonoInstaller
     {
         base.Start();
         _levelLoader.StartScene();
-        _musicPlayer.PlayDefaultMusic();
+        _musicPlayer.PlayMusic(overrideMusic ? overrideMusic : _musicPlayer.defaultMusic);
     }
 
     void OnDisable()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Animancer;
 using UnityEngine;
 using Zenject;
@@ -64,6 +65,12 @@ public class Ghost : MonoBehaviour
         UpdateAnimations();
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (Moving && col.gameObject.layer == _wallLayer)
+            Direction = -Direction;
+    }
+
     public void StartCombat(NodeEvent nodeEvent)
     {
         _player.EnableControls();
@@ -81,18 +88,27 @@ public class Ghost : MonoBehaviour
             flingable.MakeDynamic();
         }
 
+        FindObjectOfType<BarrierContainer>()?.Enable();
+
         nodeEvent.Run();
     }
 
     public void EndCombat()
     {
-        _musicPlayer.PlayDefaultMusic(1f);
+        EndCombatWithMusic();
+    }
+
+    public void EndCombatWithMusic(AudioClip musicClip = null)
+    {
+        _musicPlayer.PlayMusic(musicClip ? musicClip : _musicPlayer.defaultMusic, 1f);
         _healthDisplay.Hide();
 
         while (_disabledSceneTransitions.TryDequeue(out var sceneTransition))
         {
             sceneTransition.gameObject.SetActive(true);
         }
+
+        FindObjectOfType<BarrierContainer>()?.Disable();
     }
 
     public void StopAttackingCasting()
@@ -151,6 +167,11 @@ public class Ghost : MonoBehaviour
         state.Events.OnEnd += () => _animancer.Play(animations.castLoop);
     }
 
+    public void PlayMusic(AudioClip clip)
+    {
+        _musicPlayer.PlayMusic(clip);
+    }
+
     void UpdateAnimations()
     {
         if (_state == State.None)
@@ -166,12 +187,6 @@ public class Ghost : MonoBehaviour
     void PlayIdleAnimation()
     {
         _animancer.Play(_facingUp ? animations.idleUp : animations.idle);
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (Moving && col.gameObject.layer == _wallLayer)
-            Direction = -Direction;
     }
 
     enum State

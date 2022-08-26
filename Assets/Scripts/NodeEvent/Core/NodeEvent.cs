@@ -6,14 +6,7 @@ public abstract class NodeEvent : MonoBehaviour
     [SerializeField] float startDelayTime;
     [SerializeField] float endDelayTime;
 
-    [ReadOnly] [SerializeField] bool isDone;
-    [ReadOnly] [SerializeField] protected bool isActive;
-
-    public bool IsDone
-    {
-        get => isDone;
-        protected set => isDone = value;
-    }
+    public bool IsDone { get; protected set; }
 
     public void Run()
     {
@@ -22,8 +15,7 @@ public abstract class NodeEvent : MonoBehaviour
 
     IEnumerator CO_RunWrapper()
     {
-        isActive = true;
-        isDone = false;
+        IsDone = false;
 
         if (startDelayTime != 0)
             yield return new WaitForSeconds(startDelayTime);
@@ -33,8 +25,7 @@ public abstract class NodeEvent : MonoBehaviour
         if (endDelayTime != 0)
             yield return new WaitForSeconds(endDelayTime);
 
-        isActive = false;
-        isDone = true;
+        IsDone = true;
     }
 
     protected abstract IEnumerator CO_Run();

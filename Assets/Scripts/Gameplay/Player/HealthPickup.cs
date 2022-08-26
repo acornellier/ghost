@@ -1,20 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Light2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class HealthPickup : MonoBehaviour
 {
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip clip;
-
-    Collider2D _collider;
-    SpriteRenderer _renderer;
-
-    void Awake()
-    {
-        _collider = GetComponent<Collider2D>();
-        _renderer = GetComponent<SpriteRenderer>();
-    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -25,8 +18,9 @@ public class HealthPickup : MonoBehaviour
         playerHealth.Health += 1;
         source.PlayOneShot(clip);
 
-        _collider.enabled = false;
-        _renderer.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<Light2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
         Destroy(gameObject, 1);
     }
 }

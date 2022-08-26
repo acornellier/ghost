@@ -10,7 +10,8 @@ public class ActivationNodeEvent : NodeEvent
 
     protected override IEnumerator CO_Run()
     {
-        go.SetActive(active);
+        if (go)
+            go.SetActive(active);
         foreach (var obj in gameObjects)
         {
             obj.SetActive(active);

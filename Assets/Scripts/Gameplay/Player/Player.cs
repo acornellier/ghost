@@ -177,20 +177,22 @@ public class Player : MonoBehaviour
 
     void HandleDialogueStart()
     {
+        health.Immune = true;
+
         if (_actions.enabled)
         {
             DisableControls();
-            health.Immune = true;
             _controlsDisabledForDialogue = true;
         }
     }
 
     void HandleDialogueEnd()
     {
+        health.Immune = false;
+
         if (_controlsDisabledForDialogue)
         {
             EnableControls();
-            health.Immune = false;
             _controlsDisabledForDialogue = false;
         }
     }

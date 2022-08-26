@@ -5,24 +5,18 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     AudioSource _source;
-    AudioClip _defaultMusic;
+    public AudioClip defaultMusic;
 
     void Awake()
     {
         _source = GetComponent<AudioSource>();
-        _defaultMusic = _source.clip;
+        defaultMusic = _source.clip;
     }
 
     public void PlayMusic(AudioClip clip, float fadeOutTime = 0f)
     {
         if (_source.clip != clip)
             StartCoroutine(CO_PlayMusic(clip, fadeOutTime));
-    }
-
-    public void PlayDefaultMusic(float fadeOutTime = 0f)
-    {
-        if (_source.clip != _defaultMusic)
-            StartCoroutine(CO_PlayMusic(_defaultMusic, fadeOutTime));
     }
 
     IEnumerator CO_PlayMusic(AudioClip clip, float fadeOutTime = 0f)
