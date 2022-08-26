@@ -82,7 +82,7 @@ public class Ghost : MonoBehaviour
 
     public void EndCombat()
     {
-        _musicPlayer.PlayMusic(_musicPlayer.defaultMusic, 1f);
+        _musicPlayer.PlayDefaultMusic(1f);
         _healthDisplay.Hide();
 
         while (_disabledSceneTransitions.TryDequeue(out var sceneTransition))

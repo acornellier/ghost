@@ -58,7 +58,11 @@ public class ShadowHand : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(CO_Retreat(chargeSpeed));
+    }
 
+    public IEnumerator CO_Retreat(float chargeSpeed)
+    {
         while (Vector2.Distance(transform.position, _intialPosition) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(

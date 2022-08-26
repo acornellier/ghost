@@ -29,6 +29,7 @@ public class Flingable : MonoBehaviour
     Collider2D _collider;
     Rigidbody2D _body;
     LayerMask _collisionMask;
+    float _initialLiftVolume;
 
     [Inject] Player _player;
 
@@ -41,6 +42,7 @@ public class Flingable : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _body = GetComponent<Rigidbody2D>();
         _collisionMask = LayerMask.GetMask("Furniture", "Player", "Wall");
+        _initialLiftVolume = liftSource.volume;
 
         if (!stayDynamicOnSpawn)
             _body.bodyType = RigidbodyType2D.Kinematic;
@@ -96,13 +98,17 @@ public class Flingable : MonoBehaviour
         _body.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    public void Lift()
+    public void Lift(bool quietly = false)
     {
         _state = State.Lifting;
         _lastStateTimestamp = Time.time;
 
         liftSource.Stop();
         liftSource.Play();
+
+        liftSource.volume = _initialLiftVolume;
+        if (quietly)
+            liftSource.volume = 0.1f;
 
         StartCoroutine(LightUp());
         StartCoroutine(Shake());
@@ -191,11 +197,12 @@ public class Flingable : MonoBehaviour
 
     IEnumerator FadeOutLiftSound()
     {
+        var initialVolume = liftSource.volume;
         var t = 0f;
         while (liftSource.volume > 0)
         {
             t += Time.deltaTime;
-            liftSource.volume = Mathf.Clamp01(1 - t);
+            liftSource.volume = Mathf.Lerp(initialVolume, 0, t);
             yield return null;
         }
 

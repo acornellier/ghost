@@ -14,7 +14,7 @@ public class LiftAllFlingablesNodeEvent : NodeEvent
 
         foreach (var flingable in flingables)
         {
-            flingable.Lift();
+            flingable.Lift(true);
         }
 
         yield break;

@@ -1,39 +1,41 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class MusicPlayer : MonoBehaviour
 {
-    [NonSerialized] public AudioClip defaultMusic;
-
     AudioSource _source;
+    AudioClip _defaultMusic;
 
     void Awake()
     {
         _source = GetComponent<AudioSource>();
-        defaultMusic = _source.clip;
+        _defaultMusic = _source.clip;
     }
 
     public void PlayMusic(AudioClip clip, float fadeOutTime = 0f)
     {
-        StartCoroutine(CO_PlayMusic(clip, fadeOutTime));
+        if (_source.clip != clip)
+            StartCoroutine(CO_PlayMusic(clip, fadeOutTime));
     }
 
-    public void PlayDefaultIfNotAlreadyPlaying()
+    public void PlayDefaultMusic(float fadeOutTime = 0f)
     {
-        if (_source.clip != defaultMusic)
-            StartCoroutine(CO_PlayMusic(defaultMusic));
+        if (_source.clip != _defaultMusic)
+            StartCoroutine(CO_PlayMusic(_defaultMusic, fadeOutTime));
     }
 
     IEnumerator CO_PlayMusic(AudioClip clip, float fadeOutTime = 0f)
     {
-        var t = 0f;
-        while (_source.volume > 0)
+        if (fadeOutTime > 0)
         {
-            t += Time.deltaTime;
-            _source.volume = Mathf.Clamp01(1 - t / fadeOutTime);
-            yield return null;
+            var t = 0f;
+            while (_source.volume > 0)
+            {
+                t += Time.deltaTime;
+                _source.volume = Mathf.Clamp01(1 - t / fadeOutTime);
+                yield return null;
+            }
         }
 
         _source.clip = clip;

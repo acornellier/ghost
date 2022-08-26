@@ -19,7 +19,7 @@ public class SceneInstaller : MonoInstaller
     {
         base.Start();
         _levelLoader.StartScene();
-        _musicPlayer.PlayDefaultIfNotAlreadyPlaying();
+        _musicPlayer.PlayDefaultMusic();
     }
 
     void OnDisable()
