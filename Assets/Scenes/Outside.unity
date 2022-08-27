@@ -185,54 +185,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   dialogues:
   - character: {fileID: 11400000, guid: 75a7a9b8e92ea6843a71722d52b07df9, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "Okay, Mom, I\u2019m at the house. The place is huge!"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 042310453f0f12346a03c0f190a1f52f, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "Great, you just need to pick up the box of heirlooms from your Grandpa\u2019s
       attic!"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 75a7a9b8e92ea6843a71722d52b07df9, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: Sounds easy enough.
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 042310453f0f12346a03c0f190a1f52f, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "Yes, well, it\u2019s a bit of a mess in there. He became quite the recluse
       in his later years."
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 042310453f0f12346a03c0f190a1f52f, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "We were worried that he spent so much time alone, but he kept stubbornly
       telling us he was fine.\r"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 75a7a9b8e92ea6843a71722d52b07df9, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "He always claimed to have all the company he needed at home, right? But
       he lived alone\u2026"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 042310453f0f12346a03c0f190a1f52f, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: "He certainly was an eccentric one. Well\u2026 anyways. Call me when you\u2019re
       on your way back home.\r"
+    topOfScreen: 0
   - character: {fileID: 11400000, guid: 75a7a9b8e92ea6843a71722d52b07df9, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
     line: Sure, will do.
+    topOfScreen: 0
 --- !u!1 &268570175
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,8 +285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   unityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -331,7 +335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4, y: 57.2}
+  m_AnchoredPosition: {x: 0.4, y: 56.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427841507
@@ -356,15 +360,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press any key to start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d66d4f683837db74892191bc3e762508, type: 2}
-  m_sharedMaterial: {fileID: -294966103015169031, guid: d66d4f683837db74892191bc3e762508, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8e7f23410e9dc1249a9a1725c7779261, type: 2}
+  m_sharedMaterial: {fileID: -1414166499492026940, guid: 8e7f23410e9dc1249a9a1725c7779261, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292728759
+  m_fontColor: {r: 0.7164471, g: 0.8438258, b: 0.8679245, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -381,13 +385,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 2
+  m_fontSizeBase: 2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -593,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17a676c0dad453bb4e4bb904c38db35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overrideMusic: {fileID: 0}
 --- !u!1 &528769489
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +669,7 @@ RectTransform:
   m_Children:
   - {fileID: 427841506}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -717,8 +722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   unityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -771,8 +774,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   nodeEvents:
   - {fileID: 1314881072}
   - {fileID: 2110377457}
@@ -1200,8 +1201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   unityEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1278,7 +1277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1466919473
 PrefabInstance:
@@ -1611,8 +1610,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   timeline: {fileID: 1650885951}
 --- !u!1 &1720717971
 GameObject:
@@ -1670,7 +1667,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -219306023
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bc0cad22c36253545bcb83e7343d2211, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1696,7 +1693,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087443433
 GameObject:
@@ -1781,7 +1778,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2087443436
 Animator:
@@ -1813,7 +1810,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 992387325345206725, guid: 0efff816d444b8b4097943a11bddc3eb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 992387325345206725, guid: 0efff816d444b8b4097943a11bddc3eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1960,8 +1957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelayTime: 0
   endDelayTime: 0
-  isDone: 0
-  isActive: 0
   timeline: {fileID: 2110377456}
 --- !u!1 &2134881972 stripped
 GameObject:

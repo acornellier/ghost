@@ -26,13 +26,12 @@ public class HealthDisplay : MonoBehaviour
 
     public void HandleHealthChange(float prevHealth, float curHealth)
     {
-        var min = Mathf.Min(prevHealth, curHealth);
         var max = Mathf.Max(prevHealth, curHealth);
 
-        for (var i = Mathf.FloorToInt(min); i < Mathf.CeilToInt(max); ++i)
+        for (var heartIndex = 0; heartIndex < max; ++heartIndex)
         {
-            var heartHealth = curHealth - i;
-            _hearts[i].sprite =
+            var heartHealth = Mathf.Clamp01(curHealth - heartIndex);
+            _hearts[heartIndex].sprite =
                 heartHealth switch
                 {
                     0 => emptyHeart,
