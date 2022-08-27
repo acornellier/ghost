@@ -19,6 +19,11 @@ public class MusicPlayer : MonoBehaviour
             StartCoroutine(CO_PlayMusic(clip, fadeOutTime));
     }
 
+    public void PlayOneShot(AudioClip clip)
+    {
+        StartCoroutine(CO_PlayClip(clip));
+    }
+
     IEnumerator CO_PlayMusic(AudioClip clip, float fadeOutTime = 0f)
     {
         if (fadeOutTime > 0)
@@ -34,6 +39,14 @@ public class MusicPlayer : MonoBehaviour
 
         _source.clip = clip;
         _source.volume = 1;
+        _source.Play();
+    }
+
+    IEnumerator CO_PlayClip(AudioClip clip)
+    {
+        _source.Stop();
+        _source.PlayOneShot(clip);
+        yield return new WaitUntil(() => !_source.isPlaying);
         _source.Play();
     }
 }

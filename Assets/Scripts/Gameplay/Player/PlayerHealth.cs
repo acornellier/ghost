@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (SavedStateManager.IsHardMode)
         {
-            maxHealth = 2;
+            maxHealth = 3;
             _health = maxHealth;
         }
 

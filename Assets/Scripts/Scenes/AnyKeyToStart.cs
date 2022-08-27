@@ -29,7 +29,6 @@ public class AnyKeyToStart : MonoBehaviour
         InputSystem.onAnyButtonPress.CallOnce(
             (_) =>
             {
-                // TODO: probably bad
                 _savedStateManager.Reset();
 
                 unityEvent.Invoke();

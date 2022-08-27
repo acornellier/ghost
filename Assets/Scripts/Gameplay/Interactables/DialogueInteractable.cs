@@ -11,7 +11,10 @@ public class DialogueInteractable : MonoBehaviour, IInteractable
     [SerializeField] string savedStateKey;
     [SerializeField] Sprite spriteSwap;
 
+    [SerializeField] AudioClip clip;
+
     [Inject] DialogueManager _dialogueManager;
+    [Inject] MusicPlayer _musicPlayer;
     [Inject] SavedStateManager _savedStateManager;
 
     public bool disabled;
@@ -42,13 +45,19 @@ public class DialogueInteractable : MonoBehaviour, IInteractable
             return;
 
         _triggered = true;
-        _dialogueManager.StartDialogue(dialogues, SwapSprite);
+        _dialogueManager.StartDialogue(dialogues, DialogueCallback);
 
         if (savedStateKey.Length > 0)
         {
             _savedStateManager.SetBool(savedStateKey);
             _savedStateManager.Save();
         }
+    }
+
+    void DialogueCallback()
+    {
+        SwapSprite();
+        PlaySound();
     }
 
     void SwapSprite()
@@ -58,5 +67,12 @@ public class DialogueInteractable : MonoBehaviour, IInteractable
         var spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer)
             spriteRenderer.sprite = spriteSwap;
+    }
+
+    void PlaySound()
+    {
+        if (!clip) return;
+
+        _musicPlayer.PlayOneShot(clip);
     }
 }

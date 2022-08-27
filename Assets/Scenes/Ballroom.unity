@@ -463,6 +463,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1 &112500007
 GameObject:
@@ -630,6 +632,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1 &145099799
 GameObject:
@@ -6478,6 +6482,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1 &935134410
 GameObject:
@@ -11706,6 +11712,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1 &1555357317
 GameObject:
@@ -14122,6 +14130,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1 &2085146306
 GameObject:
@@ -14884,6 +14894,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1001 &6183110208394616527
 PrefabInstance:
@@ -16728,13 +16740,110 @@ MonoBehaviour:
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: I remember Grandpa wanted to teach me how to play, when I was younger.
-      I never did pick it up.
+    line: I remember Grandpa would teach me how to play, when I was younger...
     topOfScreen: 1
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 6183110208394616532}
+  clip: {fileID: 8300000, guid: a69e74c87e70bbd4f98c9d760075b412, type: 3}
   disabled: 0
+--- !u!82 &6183110208394616532
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183110208394616530}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7918884530457161948, guid: 4d5515011afe6fb499f44337c7d9a8a8, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6549394392424935379
 GameObject:
   m_ObjectHideFlags: 0
@@ -16870,6 +16979,8 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  source: {fileID: 0}
+  clip: {fileID: 0}
   disabled: 0
 --- !u!1001 &7003745214845807297
 PrefabInstance:
@@ -16945,7 +17056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7003745214419194558, guid: acbebd6c4bdadff4c8b13a340cb2f7e5, type: 3}
       propertyPath: orthographic size
-      value: 11.09375
+      value: 11.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
