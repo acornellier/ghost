@@ -588,7 +588,6 @@ Transform:
   - {fileID: 1387363195}
   - {fileID: 1789738773}
   - {fileID: 1507354762}
-  - {fileID: 695533392}
   - {fileID: 294174085}
   - {fileID: 128570555}
   - {fileID: 129458363}
@@ -620,7 +619,6 @@ MonoBehaviour:
   - {fileID: 1387363196}
   - {fileID: 1789738775}
   - {fileID: 1507354763}
-  - {fileID: 695533393}
   - {fileID: 294174086}
   - {fileID: 128570556}
   - {fileID: 129458364}
@@ -1124,55 +1122,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &695533391
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 695533392}
-  - component: {fileID: 695533393}
-  m_Layer: 0
-  m_Name: HealthPickup1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &695533392
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695533391}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -2.7700002, z: -0.02700306}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 349663566}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &695533393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695533391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1224551f1ee240c9baf513c8ef52136e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startDelayTime: 0
-  endDelayTime: 1
-  go: {fileID: 1972064126}
-  gameObjects: []
-  active: 1
 --- !u!114 &778069316 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 992387325345206722, guid: 0efff816d444b8b4097943a11bddc3eb, type: 3}
@@ -6181,11 +6130,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3414828613999222813, guid: b730ab2e9c081434dafcc6cafc4782d2, type: 3}
   m_PrefabInstance: {fileID: 1442446427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1972064126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7099813670396932121, guid: b988f2bb7856a91419462746599e04d4, type: 3}
-  m_PrefabInstance: {fileID: 7099813670595884040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046979426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6409,16 +6353,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -2, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -1, y: -4, z: 0}
     second:
       serializedVersion: 2
@@ -6430,16 +6364,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 0, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 1, y: -4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 1
@@ -7933,19 +7857,19 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 161
+  - m_RefCount: 159
     m_Data: {fileID: 11400000, guid: f8a3bddff648d70429da417a45c1185b, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 161
+  - m_RefCount: 159
     m_Data: {fileID: 21300000, guid: 56e105bb01e15f1479a41c158b230503, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 161
+  - m_RefCount: 159
     m_Data:
       e00: 1
       e01: 0
@@ -7964,7 +7888,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 161
+  - m_RefCount: 159
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 2.78259e-40, g: 2.78259e-40, b: 2.78259e-40, a: 2.78259e-40}
@@ -9019,6 +8943,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!1 &6549394390853442753
 GameObject:
   m_ObjectHideFlags: 0
@@ -9154,6 +9079,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!212 &6549394390942367168
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9622,6 +9548,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!4 &6549394391464664689
 Transform:
   m_ObjectHideFlags: 0
@@ -9868,6 +9795,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!61 &6549394391643679040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10003,6 +9931,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!4 &6549394391698936768
 Transform:
   m_ObjectHideFlags: 0
@@ -10360,6 +10289,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!1 &6549394391990900081
 GameObject:
   m_ObjectHideFlags: 0
@@ -10606,6 +10536,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!1 &6549394392131599171
 GameObject:
   m_ObjectHideFlags: 0
@@ -10963,6 +10894,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!1 &6549394392226509618
 GameObject:
   m_ObjectHideFlags: 0
@@ -11320,6 +11252,7 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
+  disabled: 0
 --- !u!1 &6549394392366230401
 GameObject:
   m_ObjectHideFlags: 0
@@ -11985,7 +11918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7003745214419194558, guid: acbebd6c4bdadff4c8b13a340cb2f7e5, type: 3}
       propertyPath: orthographic size
-      value: 11.25
+      value: 13.40625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
