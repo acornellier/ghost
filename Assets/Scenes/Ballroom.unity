@@ -463,7 +463,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1 &112500007
@@ -632,7 +631,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1 &145099799
@@ -6482,7 +6480,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1 &935134410
@@ -8737,7 +8734,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8787,7 +8784,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4294967295
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8842,8 +8839,8 @@ Tilemap:
   - m_RefCount: 158
     m_Data: {fileID: 11400000, guid: 986f7a4b2acb0fa4eaa127a8017cfd9a, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2
-    m_Data: {fileID: 21300000, guid: 56e105bb01e15f1479a41c158b230503, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 158
@@ -11712,7 +11709,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1 &1555357317
@@ -14130,7 +14126,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1 &2085146306
@@ -14894,7 +14889,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1001 &6183110208394616527
@@ -16745,7 +16739,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 6183110208394616532}
   clip: {fileID: 8300000, guid: a69e74c87e70bbd4f98c9d760075b412, type: 3}
   disabled: 0
 --- !u!82 &6183110208394616532
@@ -16979,7 +16972,6 @@ MonoBehaviour:
   repeatDialogues: []
   savedStateKey: 
   spriteSwap: {fileID: 0}
-  source: {fileID: 0}
   clip: {fileID: 0}
   disabled: 0
 --- !u!1001 &7003745214845807297
