@@ -79,7 +79,7 @@ public class Ghost : MonoBehaviour
 
         foreach (var interactable in FindObjectsOfType<DialogueInteractable>())
         {
-            interactable.gameObject.SetActive(false);
+            interactable.disabled = true;
         }
 
         foreach (var sceneTransition in FindObjectsOfType<SceneTransition>())
@@ -110,7 +110,7 @@ public class Ghost : MonoBehaviour
 
         foreach (var interactable in FindObjectsOfType<DialogueInteractable>())
         {
-            interactable.gameObject.SetActive(true);
+            interactable.disabled = false;
         }
 
         while (_disabledSceneTransitions.TryDequeue(out var sceneTransition))

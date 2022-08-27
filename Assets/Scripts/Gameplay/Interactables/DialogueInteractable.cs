@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(Collider2D))]
@@ -15,6 +14,8 @@ public class DialogueInteractable : MonoBehaviour, IInteractable
     [Inject] DialogueManager _dialogueManager;
     [Inject] SavedStateManager _savedStateManager;
 
+    public bool disabled;
+
     bool _triggered;
 
     void Awake()
@@ -29,6 +30,8 @@ public class DialogueInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (disabled) return;
+
         if (_triggered && repeatDialogues.Length > 0)
         {
             _dialogueManager.StartDialogue(repeatDialogues);
