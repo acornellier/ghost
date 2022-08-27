@@ -8875,7 +8875,6 @@ MonoBehaviour:
   - {fileID: 1250322663}
   - {fileID: 158725811}
   - {fileID: 78363302}
-  - {fileID: 0}
   - {fileID: 1849793465}
   - {fileID: 991040064}
   - {fileID: 544029984}
@@ -14941,6 +14940,7 @@ Transform:
   - {fileID: 1305624644}
   - {fileID: 444431901}
   - {fileID: 2039736945}
+  - {fileID: 1059069102}
   - {fileID: 147554378}
   - {fileID: 1025019485}
   - {fileID: 1819054766}
@@ -14985,6 +14985,7 @@ MonoBehaviour:
   - {fileID: 1305624645}
   - {fileID: 444431902}
   - {fileID: 2039736946}
+  - {fileID: 1059069103}
   - {fileID: 147554379}
   - {fileID: 1025019486}
   - {fileID: 1819054767}
@@ -19321,6 +19322,55 @@ MonoBehaviour:
   speed: 15
   fly: 0
   offset: {x: 0, y: 0}
+--- !u!1 &1059069101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059069102}
+  - component: {fileID: 1059069103}
+  m_Layer: 0
+  m_Name: HealthPickup9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059069102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059069101}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01, y: 2.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 829524541}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059069103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059069101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1224551f1ee240c9baf513c8ef52136e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelayTime: 0
+  endDelayTime: 0
+  go: {fileID: 1221678053}
+  gameObjects: []
+  active: 1
 --- !u!1 &1060125857
 GameObject:
   m_ObjectHideFlags: 0
@@ -21456,6 +21506,11 @@ PrefabInstance:
 --- !u!4 &1221678052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7099813670396932123, guid: b988f2bb7856a91419462746599e04d4, type: 3}
+  m_PrefabInstance: {fileID: 1221678051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1221678053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7099813670396932121, guid: b988f2bb7856a91419462746599e04d4, type: 3}
   m_PrefabInstance: {fileID: 1221678051}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1227503503
@@ -28679,8 +28734,7 @@ MonoBehaviour:
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: "I\u2019m glad you two have each other. God, I haven\u2019t ran this much
-      since my twenties."
+    line: "God, I haven\u2019t ran this much since my twenties."
     topOfScreen: 0
   - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
     fontSize: 1
@@ -28688,11 +28742,38 @@ MonoBehaviour:
     wobble: 0
     line: "I\u2019m sorry for my outburst\u2026"
     topOfScreen: 0
-  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+  - character: {fileID: 11400000, guid: b00e87acfdee8964faa0698220e139a1, type: 2}
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: "I\u2019m just glad to be alive right now."
+    line: Heh, no hard feelings.
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: Really?
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: b00e87acfdee8964faa0698220e139a1, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "Well, it\u2019s not every day you get assailed by your grandpa\u2019s
+      grieving ghost friend... Let\u2019s just say I\u2019ve certainly got a new
+      lease on life."
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: 5ea489ea1780c4b0bb9c484be88651ba, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "Ha ha ha. Well, we\u2019ve got a lot of cleaning up to do, don\u2019t
+      we?"
+    topOfScreen: 0
+  - character: {fileID: 11400000, guid: c29507541fe75bd45bd3456e8415746e, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: Yes.
     topOfScreen: 0
   - character: {fileID: 11400000, guid: 5ea489ea1780c4b0bb9c484be88651ba, type: 2}
     fontSize: 1
@@ -28710,7 +28791,7 @@ MonoBehaviour:
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: 'Be sure to come back for a visit once in a while! '
+    line: Be sure to come back for a visit once in a while!
     topOfScreen: 0
 --- !u!1 &1841037006
 GameObject:
