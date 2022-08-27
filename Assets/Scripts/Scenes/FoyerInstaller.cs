@@ -22,7 +22,7 @@ public class FoyerInstaller : MonoBehaviour
             go.SetActive(!ballroomCombat);
         }
 
-        if (halfFoyerCombat && !SavedStateManager.IsHardMode)
+        if (ballroomCombat && halfFoyerCombat && !SavedStateManager.IsHardMode)
         {
             StartCoroutine(LoadHalfCombat());
             return;

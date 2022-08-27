@@ -33,27 +33,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "AllowHardMode",
                     "type": "Button",
-                    "id": "884feb97-3554-42f6-81fb-dfa6d435d1e3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Reset",
-                    "type": "Button",
-                    "id": "09fff7ab-2a4c-4cca-98b6-a62dd089389b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SkipDialogue",
-                    "type": "Button",
-                    "id": "6c291d41-978e-4dc5-9b1f-8c61c335cb3e",
+                    "id": "bff8fb65-f1a5-4514-89d6-1df63de0368c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -238,37 +220,48 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "1fdc47d6-3933-44a5-a7ce-73a059ebbd3d",
-                    "path": "<Keyboard>/space",
+                    "name": "Two Modifiers",
+                    "id": "9112d681-fe90-4e78-a6c7-944fce4c45ba",
+                    "path": "TwoModifiers",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Dash",
-                    "isComposite": false,
+                    "groups": "",
+                    "action": "AllowHardMode",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "e4b91603-3a21-4783-b47a-b6f14a45c495",
-                    "path": "<Keyboard>/r",
+                    "name": "modifier1",
+                    "id": "ba424e88-49d3-4b03-b8de-91c1718db63a",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Reset",
+                    "action": "AllowHardMode",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "e45d498e-6041-4b9e-a506-6650b25f0e47",
-                    "path": "<Keyboard>/x",
+                    "name": "modifier2",
+                    "id": "43efcde3-e398-40f7-9642-2d9e86233919",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "SkipDialogue",
+                    "action": "AllowHardMode",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "50b6872c-f0ae-4ea7-bd16-3a722e28549c",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "AllowHardMode",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

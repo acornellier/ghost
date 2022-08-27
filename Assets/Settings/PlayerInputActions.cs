@@ -55,27 +55,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dash"",
+                    ""name"": ""AllowHardMode"",
                     ""type"": ""Button"",
-                    ""id"": ""884feb97-3554-42f6-81fb-dfa6d435d1e3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Reset"",
-                    ""type"": ""Button"",
-                    ""id"": ""09fff7ab-2a4c-4cca-98b6-a62dd089389b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SkipDialogue"",
-                    ""type"": ""Button"",
-                    ""id"": ""6c291d41-978e-4dc5-9b1f-8c61c335cb3e"",
+                    ""id"": ""bff8fb65-f1a5-4514-89d6-1df63de0368c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -260,37 +242,48 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""1fdc47d6-3933-44a5-a7ce-73a059ebbd3d"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""9112d681-fe90-4e78-a6c7-944fce4c45ba"",
+                    ""path"": ""TwoModifiers"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
+                    ""groups"": """",
+                    ""action"": ""AllowHardMode"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""e4b91603-3a21-4783-b47a-b6f14a45c495"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""name"": ""modifier1"",
+                    ""id"": ""ba424e88-49d3-4b03-b8de-91c1718db63a"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Reset"",
+                    ""action"": ""AllowHardMode"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""e45d498e-6041-4b9e-a506-6650b25f0e47"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""name"": ""modifier2"",
+                    ""id"": ""43efcde3-e398-40f7-9642-2d9e86233919"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""SkipDialogue"",
+                    ""action"": ""AllowHardMode"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""50b6872c-f0ae-4ea7-bd16-3a722e28549c"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""AllowHardMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -899,9 +892,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
-        m_Player_SkipDialogue = m_Player.FindAction("SkipDialogue", throwIfNotFound: true);
+        m_Player_AllowHardMode = m_Player.FindAction("AllowHardMode", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -977,9 +968,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_Reset;
-    private readonly InputAction m_Player_SkipDialogue;
+    private readonly InputAction m_Player_AllowHardMode;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -987,9 +976,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @Reset => m_Wrapper.m_Player_Reset;
-        public InputAction @SkipDialogue => m_Wrapper.m_Player_SkipDialogue;
+        public InputAction @AllowHardMode => m_Wrapper.m_Player_AllowHardMode;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1008,15 +995,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Reset.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
-                @Reset.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
-                @Reset.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
-                @SkipDialogue.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkipDialogue;
-                @SkipDialogue.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkipDialogue;
-                @SkipDialogue.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkipDialogue;
+                @AllowHardMode.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAllowHardMode;
+                @AllowHardMode.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAllowHardMode;
+                @AllowHardMode.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAllowHardMode;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1030,15 +1011,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
-                @Reset.started += instance.OnReset;
-                @Reset.performed += instance.OnReset;
-                @Reset.canceled += instance.OnReset;
-                @SkipDialogue.started += instance.OnSkipDialogue;
-                @SkipDialogue.performed += instance.OnSkipDialogue;
-                @SkipDialogue.canceled += instance.OnSkipDialogue;
+                @AllowHardMode.started += instance.OnAllowHardMode;
+                @AllowHardMode.performed += instance.OnAllowHardMode;
+                @AllowHardMode.canceled += instance.OnAllowHardMode;
             }
         }
     }
@@ -1206,9 +1181,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
-        void OnReset(InputAction.CallbackContext context);
-        void OnSkipDialogue(InputAction.CallbackContext context);
+        void OnAllowHardMode(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

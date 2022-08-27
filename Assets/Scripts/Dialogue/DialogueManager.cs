@@ -27,14 +27,12 @@ public class DialogueManager : MonoBehaviour
         topImage.gameObject.SetActive(false);
         bottomImage.gameObject.SetActive(false);
         _actions.Interact.performed += OnNextInput;
-        _actions.SkipDialogue.performed += OnSkipDialogue;
     }
 
     void OnDisable()
     {
         StopDialogue();
         _actions.Interact.performed -= OnNextInput;
-        _actions.SkipDialogue.performed -= OnSkipDialogue;
     }
 
     public void StartDialogue(IEnumerable<Dialogue> dialogues, Action callback = null)
@@ -71,11 +69,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         TypeNextLine();
-    }
-
-    void OnSkipDialogue(InputAction.CallbackContext ctx)
-    {
-        StopDialogue();
     }
 
     void TypeNextLine()
