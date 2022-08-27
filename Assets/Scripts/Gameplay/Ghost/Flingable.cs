@@ -125,7 +125,8 @@ public class Flingable : MonoBehaviour
         var direction = (_player.transform.position - transform.position).normalized;
         _body.rotation = default;
         _body.velocity = default;
-        _body.AddForce(flingSpeed * direction, ForceMode2D.Impulse);
+        var multiplier = SavedStateManager.IsHardMode ? 1.5f : 1f;
+        _body.AddForce(multiplier * flingSpeed * direction, ForceMode2D.Impulse);
     }
 
     public void Drop()

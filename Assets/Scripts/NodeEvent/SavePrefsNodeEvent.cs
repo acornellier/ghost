@@ -12,6 +12,10 @@ public class SavePrefsNodeEvent : NodeEvent
     protected override IEnumerator CO_Run()
     {
         _savedStateManager.SavedState.bools[key] = value;
+
+        if (SavedStateManager.IsHardMode)
+            _savedStateManager.SavedState.bools[key + "HardMode"] = value;
+
         _savedStateManager.Save();
         yield break;
     }

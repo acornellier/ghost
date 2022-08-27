@@ -36,7 +36,8 @@ public class Bullet : MonoBehaviour
         var playerHealth = col.GetComponent<PlayerHealth>();
         if (playerHealth)
         {
-            playerHealth.Health -= 0.5f;
+            var damage = SavedStateManager.IsHardMode ? 1 : 0.5f;
+            playerHealth.Health -= damage;
             return;
         }
 

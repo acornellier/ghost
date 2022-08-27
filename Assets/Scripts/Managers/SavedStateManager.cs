@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Zenject;
+using Object = UnityEngine.Object;
 
 public class SavedState
 {
@@ -11,7 +15,13 @@ public class SavedState
 
 public class SavedStateManager
 {
+    [Inject] LevelLoader _levelLoader;
+
     SavedState _savedState;
+
+    const string _key = "SavedState";
+    const string _hardModeKey = "HardMode";
+    const string _hardModeUnlockedKey = "HardModeUnlocked";
 
     public SavedState SavedState
     {
@@ -24,7 +34,16 @@ public class SavedStateManager
         private set => _savedState = value;
     }
 
-    const string _key = "SavedState";
+    static bool? _isHardMode;
+
+    public static bool IsHardMode
+    {
+        get
+        {
+            _isHardMode ??= Convert.ToBoolean(PlayerPrefs.GetInt(_hardModeKey));
+            return _isHardMode.Value;
+        }
+    }
 
     void Initialize()
     {
@@ -60,5 +79,24 @@ public class SavedStateManager
     public void SetBool(string key, bool value = true)
     {
         SavedState.bools[key] = value;
+    }
+
+    public static void UnlockHardmode()
+    {
+        PlayerPrefs.SetInt(_hardModeUnlockedKey, Convert.ToInt32(true));
+    }
+
+    public static bool IsHardModeUnlocked()
+    {
+        return Convert.ToBoolean(PlayerPrefs.GetInt(_hardModeUnlockedKey));
+    }
+
+    public void ToggleHardMode()
+    {
+        _isHardMode = !_isHardMode;
+        PlayerPrefs.SetInt("HardMode", Convert.ToInt32(_isHardMode));
+
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            _levelLoader.ReloadScene();
     }
 }

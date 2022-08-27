@@ -31,8 +31,6 @@ public class BulletsNodeEvent : NodeEvent
             adjustedStartAngle += spiralAngleChange;
             yield return new WaitForSeconds(timeBetweenWaves);
         }
-
-        // _pool.Clear();
     }
 
     void Fire(float adjustedStartAngle)
@@ -47,7 +45,8 @@ public class BulletsNodeEvent : NodeEvent
             var direction = (moveVector - (Vector2)transform.position).normalized;
 
             var bullet = _pool.Get();
-            bullet.Initialize(_pool, direction, bulletSpeed);
+            var multiplier = SavedStateManager.IsHardMode ? 1.5f : 1f;
+            bullet.Initialize(_pool, direction, bulletSpeed * multiplier);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
 

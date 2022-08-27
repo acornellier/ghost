@@ -14,8 +14,6 @@ public class LevelLoader : MonoBehaviour
 
     [Inject] SavedStateManager _savedStateManager;
 
-    public bool isLoaded;
-
     public void StartScene()
     {
         StartCoroutine(CO_StartScene());
@@ -38,6 +36,9 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator CO_StartScene()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+            yield break;
+
         var color = transitionImage.color;
         color.a = 1;
 
@@ -49,13 +50,11 @@ public class LevelLoader : MonoBehaviour
             transitionImage.color = color;
             yield return null;
         }
-
-        isLoaded = true;
     }
 
     IEnumerator CO_LoadScene(string scene)
     {
-        isLoaded = false;
+        Time.timeScale = 1;
 
         var color = transitionImage.color;
         color.a = 0;

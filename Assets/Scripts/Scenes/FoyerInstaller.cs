@@ -17,15 +17,12 @@ public class FoyerInstaller : MonoBehaviour
         var ballroomCombat = _savedStateManager.IsBoolSet("BallroomCombat");
         var halfFoyerCombat = _savedStateManager.IsBoolSet("FoyerCombatHalf");
 
-        // TODO
-        // ballroomCombat = true;
-
         foreach (var go in roundTwoDeactivate)
         {
             go.SetActive(!ballroomCombat);
         }
 
-        if (halfFoyerCombat)
+        if (halfFoyerCombat && !SavedStateManager.IsHardMode)
         {
             StartCoroutine(LoadHalfCombat());
             return;

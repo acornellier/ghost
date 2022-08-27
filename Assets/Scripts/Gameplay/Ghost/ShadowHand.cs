@@ -58,6 +58,9 @@ public class ShadowHand : MonoBehaviour
         // prepareSource.Stop();
         // chargeSource.PlayOneShot(chargeClip);
 
+        if (SavedStateManager.IsHardMode)
+            chargeSpeed *= 1.5f;
+
         while (Vector2.Distance(transform.position, chargeTarget.position) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(
@@ -68,7 +71,7 @@ public class ShadowHand : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(SavedStateManager.IsHardMode ? 1f : 0.5f);
         yield return StartCoroutine(CO_Retreat(chargeSpeed));
     }
 
