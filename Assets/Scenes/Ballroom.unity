@@ -435,6 +435,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7928531372161945371, guid: ffb2f2de0af813e4083c1822519f0e30, type: 3}
   m_PrefabInstance: {fileID: 112234827}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &112234829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7928531372161945373, guid: ffb2f2de0af813e4083c1822519f0e30, type: 3}
+  m_PrefabInstance: {fileID: 112234827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &112234830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112234829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "I wonder what\u2019s in this?"
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &112500007
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +505,7 @@ GameObject:
   - component: {fileID: 143096667}
   - component: {fileID: 143096670}
   - component: {fileID: 143096671}
+  - component: {fileID: 143096672}
   m_Layer: 9
   m_Name: Bookshelf (1)
   m_TagString: Untagged
@@ -577,6 +606,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.75, y: 5.25}
   m_EdgeRadius: 0
+--- !u!114 &143096672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143096666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: The cobwebs are enormous!
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &145099799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,6 +3380,7 @@ Transform:
   m_Children:
   - {fileID: 6549394392424935381}
   - {fileID: 143096667}
+  - {fileID: 875340927}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3649,6 +3702,11 @@ PrefabInstance:
 --- !u!4 &752730351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7511718263635262733, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
+  m_PrefabInstance: {fileID: 752730350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &752730352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511718263635262731, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 752730350}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &755607331 stripped
@@ -6289,6 +6347,88 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7099813670396932121, guid: b988f2bb7856a91419462746599e04d4, type: 3}
   m_PrefabInstance: {fileID: 819234765}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &875340926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875340927}
+  - component: {fileID: 875340928}
+  - component: {fileID: 875340929}
+  m_Layer: 9
+  m_Name: TableInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &875340927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875340926}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.40374, y: 5.0106354, z: -0.19743544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 547675633}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &875340928
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875340926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6, y: 3}
+  m_EdgeRadius: 0
+--- !u!114 &875340929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875340926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "A table set for two\u2026 Odd\u2026"
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &935134410
 GameObject:
   m_ObjectHideFlags: 0
@@ -11491,6 +11631,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7928531372161945371, guid: ffb2f2de0af813e4083c1822519f0e30, type: 3}
   m_PrefabInstance: {fileID: 1551498440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1551498442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7928531372161945373, guid: ffb2f2de0af813e4083c1822519f0e30, type: 3}
+  m_PrefabInstance: {fileID: 1551498440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1551498443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551498442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "I wonder what\u2019s in this?"
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &1555357317
 GameObject:
   m_ObjectHideFlags: 0
@@ -11570,6 +11738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17a676c0dad453bb4e4bb904c38db35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overrideMusic: {fileID: 0}
 --- !u!114 &1555357321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12075,7 +12244,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7511718263635262728, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 3664492527346358215}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3664492527346358216}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716bf4c9ca1245c58dc5f2e0cdaf8e91, type: 3}
@@ -13930,12 +14099,35 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7511718263635262728, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 752730350}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 752730352}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716bf4c9ca1245c58dc5f2e0cdaf8e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2063221003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752730352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "I don\u2019t think the light works anymore."
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &2085146306
 GameObject:
   m_ObjectHideFlags: 0
@@ -14669,6 +14861,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
+--- !u!1 &3664492527346358216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511718263635262731, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
+  m_PrefabInstance: {fileID: 3664492527346358215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3664492527346358217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664492527346358216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "It\u2019s not plugged in."
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1001 &6183110208394616527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16483,12 +16703,41 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6917343224193482035, guid: 7856291d02d15c744b05243d9e31cd86, type: 3}
   m_PrefabInstance: {fileID: 6183110208394616527}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6183110208394616530}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716bf4c9ca1245c58dc5f2e0cdaf8e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6183110208394616530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6917343224193482032, guid: 7856291d02d15c744b05243d9e31cd86, type: 3}
+  m_PrefabInstance: {fileID: 6183110208394616527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6183110208394616531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183110208394616530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: I remember Grandpa wanted to teach me how to play, when I was younger.
+      I never did pick it up.
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &6549394392424935379
 GameObject:
   m_ObjectHideFlags: 0
@@ -16500,6 +16749,7 @@ GameObject:
   - component: {fileID: 6549394392424935381}
   - component: {fileID: 6549394392424935383}
   - component: {fileID: 6549394392424935384}
+  - component: {fileID: 6549394392424935385}
   m_Layer: 9
   m_Name: Bookshelf
   m_TagString: Untagged
@@ -16600,6 +16850,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.75, y: 5.25}
   m_EdgeRadius: 0
+--- !u!114 &6549394392424935385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549394392424935379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: This might be handmade...
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1001 &7003745214845807297
 PrefabInstance:
   m_ObjectHideFlags: 0

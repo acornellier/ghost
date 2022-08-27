@@ -77,6 +77,11 @@ public class Ghost : MonoBehaviour
         _musicPlayer.PlayMusic(fightMusic);
         _healthDisplay.Show();
 
+        foreach (var interactable in FindObjectsOfType<DialogueInteractable>())
+        {
+            interactable.gameObject.SetActive(false);
+        }
+
         foreach (var sceneTransition in FindObjectsOfType<SceneTransition>())
         {
             _disabledSceneTransitions.Enqueue(sceneTransition);
@@ -102,6 +107,11 @@ public class Ghost : MonoBehaviour
     {
         _musicPlayer.PlayMusic(musicClip ? musicClip : _musicPlayer.defaultMusic, 1f);
         _healthDisplay.Hide();
+
+        foreach (var interactable in FindObjectsOfType<DialogueInteractable>())
+        {
+            interactable.gameObject.SetActive(true);
+        }
 
         while (_disabledSceneTransitions.TryDequeue(out var sceneTransition))
         {

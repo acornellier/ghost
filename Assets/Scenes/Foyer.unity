@@ -7156,6 +7156,8 @@ GameObject:
   m_Component:
   - component: {fileID: 235730723}
   - component: {fileID: 235730724}
+  - component: {fileID: 235730726}
+  - component: {fileID: 235730725}
   m_Layer: 0
   m_Name: tarp_couch
   m_TagString: Untagged
@@ -7230,6 +7232,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &235730725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235730722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "Mom must have covered this a while ago. Don\u2019t know why she didn\u2019t
+      cover the rest of the furniture."
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
+--- !u!61 &235730726
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235730722}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 4}
+    newSize: {x: 8, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 4}
+  m_EdgeRadius: 0
 --- !u!1 &239738912
 GameObject:
   m_ObjectHideFlags: 0
@@ -15426,6 +15478,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7511718263635262733, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 881920924}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &881920926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511718263635262731, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
+  m_PrefabInstance: {fileID: 881920924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &881920927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881920926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "It\u2019s a lamp."
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &891018969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1842301911832641730, guid: 8df2f6cde45f25e43a8d491c10b9baf0, type: 3}
@@ -15493,6 +15573,11 @@ PrefabInstance:
 --- !u!4 &891242790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7511718263635262733, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
+  m_PrefabInstance: {fileID: 891242789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &891242791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511718263635262731, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 891242789}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &896092176
@@ -16065,7 +16150,8 @@ MonoBehaviour:
     fontSize: 1
     fontStyle: 0
     wobble: 0
-    line: Definitely fake.
+    line: "This old thing. Even though it\u2019s fake, it\u2019s still in poor taste.
+      Could never tell that to Grandpa, though."
     topOfScreen: 0
   repeatDialogues: []
   savedStateKey: 
@@ -17682,6 +17768,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7511718263635262733, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 980445431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &980445433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7511718263635262731, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
+  m_PrefabInstance: {fileID: 980445431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &980445434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980445433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: Dusty...
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &991040063
 GameObject:
   m_ObjectHideFlags: 0
@@ -21628,6 +21742,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1561383727087752183, guid: 3cc1406a82bce49399d3c637ff313b8b, type: 3}
   m_PrefabInstance: {fileID: 1227503503}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1227503505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1561383727087752177, guid: 3cc1406a82bce49399d3c637ff313b8b, type: 3}
+  m_PrefabInstance: {fileID: 1227503503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1227503506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227503505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: I better not get distracted going through all of this.
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1001 &1229634524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26843,17 +26985,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7226469133483915785, guid: d75bad85c9e9e4b3aa3a88c250777603, type: 3}
   m_PrefabInstance: {fileID: 1708886289}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708886291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7226469133483915791, guid: d75bad85c9e9e4b3aa3a88c250777603, type: 3}
+  m_PrefabInstance: {fileID: 1708886289}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1708886293 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7226469133483915788, guid: d75bad85c9e9e4b3aa3a88c250777603, type: 3}
   m_PrefabInstance: {fileID: 1708886289}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1708886291}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716bf4c9ca1245c58dc5f2e0cdaf8e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1708886294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708886291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "Dusty, but very comfortable.\r"
+    topOfScreen: 1
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &1710390601
 GameObject:
   m_ObjectHideFlags: 0
@@ -26956,12 +27126,35 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7511718263635262728, guid: 1c273ecde8b179f429de96bbcb57764e, type: 3}
   m_PrefabInstance: {fileID: 891242789}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 891242791}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716bf4c9ca1245c58dc5f2e0cdaf8e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1717676367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891242791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: These things sure are old.
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1 &1720361183
 GameObject:
   m_ObjectHideFlags: 0
@@ -31386,6 +31579,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6876024487511000408, guid: 7208d5e9cc160425d9f6a0aa3bb0a399, type: 3}
   m_PrefabInstance: {fileID: 1884163777402842618}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1884163777402842620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6876024487511000414, guid: 7208d5e9cc160425d9f6a0aa3bb0a399, type: 3}
+  m_PrefabInstance: {fileID: 1884163777402842618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1884163777402842621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884163777402842620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: df4323af030f47c46a478ad32c138b5d, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "There\u2019s so much stuff in here."
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
 --- !u!1001 &5252844795854510359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36130,3 +36351,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716bf4c9ca1245c58dc5f2e0cdaf8e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9168389046093926075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978387449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68aee4c5a6e243bc85fd1044573e087e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 1
+  dialogues:
+  - character: {fileID: 11400000, guid: b00e87acfdee8964faa0698220e139a1, type: 2}
+    fontSize: 1
+    fontStyle: 0
+    wobble: 0
+    line: "I remember sitting on Grandpa\u2019s lap when I was a kid in this very
+      chair. It held up well, through the years."
+    topOfScreen: 0
+  repeatDialogues: []
+  savedStateKey: 
+  spriteSwap: {fileID: 0}
