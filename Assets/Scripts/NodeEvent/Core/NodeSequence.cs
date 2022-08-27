@@ -20,13 +20,6 @@ public class NodeSequence : NodeEvent
         if (playOnStart) Run();
     }
 
-    void Update()
-    {
-        // TODO: DELETE BEFORE PUBLISHING
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.F))
-            _debugSkip = true;
-    }
-
     void OnValidate()
     {
         nodeEvents = gameObject.GetComponentsInDirectChildren<NodeEvent>()
