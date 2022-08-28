@@ -123,12 +123,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 9
+        y: 2
         width: 100
-        height: 26
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 1, z: 5, w: 2}
+      border: {x: 5, y: 8, z: 5, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -143,7 +143,7 @@ TextureImporter:
       name: back_button-sheet_1
       rect:
         serializedVersion: 2
-        x: 104
+        x: 105
         y: 2
         width: 100
         height: 33

@@ -10,7 +10,6 @@ public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInsta
     public override void InstallBindings()
     {
         Container.BindInstance(audioManager);
-        // Container.Bind<Bullet>().To<Bullet>(bulletPrefab).WhenInjectedInto<MonoPool<Bullet>>();
         Container.BindInstance(bulletPrefab);
     }
 }
